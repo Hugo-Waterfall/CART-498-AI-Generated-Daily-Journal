@@ -4,24 +4,36 @@ import argparse
 import base64
 import mimetypes
 import os
+from datetime import datetime
 from pathlib import Path
 
 
+DEFAULT_INPUT_DIR = Path("input_images")
+DEFAULT_OUTPUT_FILE = Path("descriptions.txt")
+DEFAULT_IMAGE_MODEL = "gpt-4.1-mini"
+DEFAULT_NARRATIVE_MODEL = "gpt-5.4"
 DEFAULT_PROMPT = "Describe this image in clear, detailed text."
+DEFAULT_NARRATIVE_PROMPT = (
+    "Write a short, 4-sentence narrative based upon the following image descriptions. "
+    "Consider the first description as the beginning of the story and the last "
+    "description as the end."
+)
+SUPPORTED_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Analyze one image with OpenAI and return a text interpretation."
+        description="Analyze all images in a folder and append descriptions to a text file."
     )
-    source_group = parser.add_mutually_exclusive_group(required=True)
-    source_group.add_argument(
-        "--image-url",
-        help="A public image URL to analyze.",
+    parser.add_argument(
+        "--input-dir",
+        default=str(DEFAULT_INPUT_DIR),
+        help=f"Folder containing images to analyze. Default: {DEFAULT_INPUT_DIR}",
     )
-    source_group.add_argument(
-        "--image-path",
-        help="A local image file to analyze.",
+    parser.add_argument(
+        "--output-file",
+        default=str(DEFAULT_OUTPUT_FILE),
+        help=f"Text file to append descriptions to. Default: {DEFAULT_OUTPUT_FILE}",
     )
     parser.add_argument(
         "--prompt",
@@ -29,9 +41,19 @@ def parse_args() -> argparse.Namespace:
         help=f"Instruction for the model. Default: {DEFAULT_PROMPT!r}",
     )
     parser.add_argument(
-        "--model",
-        default="gpt-4.1-mini",
-        help="OpenAI model to use. Default: gpt-4.1-mini",
+        "--image-model",
+        default=DEFAULT_IMAGE_MODEL,
+        help=f"OpenAI model to use for image descriptions. Default: {DEFAULT_IMAGE_MODEL}",
+    )
+    parser.add_argument(
+        "--narrative-model",
+        default=DEFAULT_NARRATIVE_MODEL,
+        help=f"OpenAI model to use for the narrative. Default: {DEFAULT_NARRATIVE_MODEL}",
+    )
+    parser.add_argument(
+        "--narrative-prompt",
+        default=DEFAULT_NARRATIVE_PROMPT,
+        help="Instruction for generating the final narrative.",
     )
     return parser.parse_args()
 
@@ -61,25 +83,93 @@ def require_api_key() -> None:
         )
 
 
-def build_data_url(image_path: str) -> str:
-    path = Path(image_path).expanduser().resolve()
-    if not path.is_file():
-        raise SystemExit(f"Image file not found: {path}")
+def collect_image_paths(input_dir: str) -> list[Path]:
+    directory = Path(input_dir).expanduser().resolve()
+    if not directory.is_dir():
+        raise SystemExit(f"Input folder not found: {directory}")
 
-    mime_type, _ = mimetypes.guess_type(path.name)
+    image_paths = sorted(
+        path
+        for path in directory.iterdir()
+        if path.is_file()
+        and not path.name.startswith(".")
+        and path.suffix.lower() in SUPPORTED_SUFFIXES
+    )
+
+    if not image_paths:
+        raise SystemExit(f"No supported image files found in {directory}")
+
+    return image_paths
+
+
+def build_data_url(image_path: Path) -> str:
+    mime_type, _ = mimetypes.guess_type(image_path.name)
     if mime_type is None or not mime_type.startswith("image/"):
         raise SystemExit(
-            f"Unsupported or unknown image type for {path.name}. Use a PNG, JPEG, WEBP, or GIF file."
+            f"Unsupported or unknown image type for {image_path.name}. Use a PNG, JPEG, WEBP, or GIF file."
         )
 
-    encoded_image = base64.b64encode(path.read_bytes()).decode("utf-8")
+    encoded_image = base64.b64encode(image_path.read_bytes()).decode("utf-8")
     return f"data:{mime_type};base64,{encoded_image}"
 
 
-def resolve_image_source(args: argparse.Namespace) -> str:
-    if args.image_url:
-        return args.image_url
-    return build_data_url(args.image_path)
+def analyze_image(client, image_path: Path, prompt: str, model: str) -> str:
+    image_source = build_data_url(image_path)
+    response = client.responses.create(
+        model=model,
+        input=[
+            {
+                "role": "user",
+                "content": [
+                    {"type": "input_text", "text": prompt},
+                    {"type": "input_image", "image_url": image_source},
+                ],
+            }
+        ],
+    )
+    return response.output_text.strip()
+
+
+def build_narrative_prompt(base_prompt: str, descriptions: list[str]) -> str:
+    numbered_descriptions = [
+        f"Description {index}: {description}"
+        for index, description in enumerate(descriptions, start=1)
+    ]
+    return f"{base_prompt}\n\nHere are the descriptions:\n" + "\n".join(numbered_descriptions)
+
+
+def generate_narrative(
+    client, descriptions: list[str], narrative_prompt: str, narrative_model: str
+) -> str:
+    response = client.responses.create(
+        model=narrative_model,
+        input=build_narrative_prompt(narrative_prompt, descriptions),
+    )
+    return response.output_text.strip()
+
+
+def append_descriptions(
+    output_file: str, descriptions: list[tuple[Path, str]], narrative: str
+) -> Path:
+    output_path = Path(output_file).expanduser().resolve()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    lines = [f"Run: {timestamp}", ""]
+
+    for image_path, description in descriptions:
+        lines.append(f"Image: {image_path.name}")
+        lines.append(description or "[No description returned]")
+        lines.append("")
+
+    lines.append("Narrative:")
+    lines.append(narrative or "[No narrative returned]")
+    lines.append("")
+
+    with output_path.open("a", encoding="utf-8") as handle:
+        handle.write("\n".join(lines))
+
+    return output_path
 
 
 def main() -> None:
@@ -94,23 +184,27 @@ def main() -> None:
             "Missing dependency: openai. Install it with `pip install -r requirements.txt`."
         ) from exc
 
+    image_paths = collect_image_paths(args.input_dir)
     client = OpenAI()
-    image_source = resolve_image_source(args)
+    descriptions = []
 
-    response = client.responses.create(
-        model=args.model,
-        input=[
-            {
-                "role": "user",
-                "content": [
-                    {"type": "input_text", "text": args.prompt},
-                    {"type": "input_image", "image_url": image_source},
-                ],
-            }
-        ],
+    for image_path in image_paths:
+        description = analyze_image(client, image_path, args.prompt, args.image_model)
+        descriptions.append((image_path, description))
+        print(f"Analyzed {image_path.name}")
+
+    narrative = generate_narrative(
+        client,
+        [description for _, description in descriptions],
+        args.narrative_prompt,
+        args.narrative_model,
     )
+    print("Generated narrative")
 
-    print(response.output_text)
+    output_path = append_descriptions(args.output_file, descriptions, narrative)
+    print(
+        f"Appended descriptions and narrative for {len(descriptions)} images to {output_path}"
+    )
 
 
 if __name__ == "__main__":

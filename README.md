@@ -1,6 +1,6 @@
 # CART-498-AI-Generated-Daily-Journal
 
-Small Python utility for analyzing a single image with the OpenAI Responses API and turning it into text.
+Small Python utility for analyzing all images in `input_images`, generating a short narrative from the resulting descriptions, and appending both the descriptions and the narrative to `descriptions.txt`.
 
 ## Setup
 
@@ -41,30 +41,41 @@ set +a
 
 ## Run
 
-Analyze a public image URL:
+Analyze every supported image in `input_images`, generate a narrative from the eight descriptions, and append the results to `descriptions.txt`:
 
 ```bash
-python3 analyze_image.py --image-url "https://api.nga.gov/iiif/a2e6da57-3cd1-4235-b20e-95dcaefed6c8/full/!800,800/0/default.jpg"
-```
-
-Analyze a local image file:
-
-```bash
-python3 analyze_image.py --image-path "/path/to/image.jpg"
+python3 analyze_image.py
 ```
 
 Use a custom prompt:
 
 ```bash
 python3 analyze_image.py \
-  --image-path "/path/to/image.jpg" \
   --prompt "Describe this image like a journal entry prompt, including mood, setting, and notable details."
+```
+
+Use a different folder or output file:
+
+```bash
+python3 analyze_image.py \
+  --input-dir "input_images" \
+  --output-file "descriptions.txt"
+```
+
+Override the image-analysis model or the narrative model:
+
+```bash
+python3 analyze_image.py \
+  --image-model "gpt-4.1-mini" \
+  --narrative-model "gpt-5.4"
 ```
 
 ## Notes
 
-- The default model is `gpt-4.1-mini`, but you can override it with `--model`.
-- The script accepts exactly one image at a time.
+- The default image-description model is `gpt-4.1-mini`.
+- The default narrative model is `gpt-5.4`.
+- The script skips hidden files like `.DS_Store`.
+- The script appends each run to `descriptions.txt`, so previous descriptions and narratives are preserved.
 - Never commit your real API key, `.env`, or any file containing secrets.
 
 
