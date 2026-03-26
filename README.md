@@ -1,6 +1,13 @@
 # CART-498-AI-Generated-Daily-Journal
 
+<<<<<<< Updated upstream
 Small Python utility for analyzing all images in `input_images`, generating a short narrative from the resulting descriptions, and appending both the descriptions and the narrative to `descriptions.txt`.
+=======
+Small Python utilities for:
+
+- analyzing a single image with the OpenAI Responses API
+- turning a folder of images into Runway Gen-4 Turbo video transitions
+>>>>>>> Stashed changes
 
 ## Setup
 
@@ -23,10 +30,11 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Then edit `.env` and add your real key:
+Then edit `.env` and add your real keys:
 
 ```bash
 OPENAI_API_KEY=your_real_key_here
+RUNWAYML_API_SECRET=your_real_runway_key_here
 ```
 
 Load it into your shell:
@@ -41,7 +49,13 @@ set +a
 
 ## Run
 
+<<<<<<< Updated upstream
 Analyze every supported image in `input_images`, generate a narrative from the eight descriptions, and append the results to `descriptions.txt`:
+=======
+Analyze images with OpenAI:
+
+Analyze a public image URL:
+>>>>>>> Stashed changes
 
 ```bash
 python3 analyze_image.py
@@ -54,6 +68,7 @@ python3 analyze_image.py \
   --prompt "Describe this image like a journal entry prompt, including mood, setting, and notable details."
 ```
 
+<<<<<<< Updated upstream
 Use a different folder or output file:
 
 ```bash
@@ -68,14 +83,38 @@ Override the image-analysis model or the narrative model:
 python3 analyze_image.py \
   --image-model "gpt-4.1-mini" \
   --narrative-model "gpt-5.4"
+=======
+Generate video clips from a folder of local images:
+
+```bash
+python3 imagetovideo.py --input-dir "/path/to/images"
+```
+
+Generate one stitched 5-second final video for every 4 images:
+
+```bash
+python3 imagetovideo.py \
+  --input-dir "/path/to/images" \
+  --group-size 4 \
+  --total-duration 5 \
+  --stitch
+>>>>>>> Stashed changes
 ```
 
 ## Notes
 
+<<<<<<< Updated upstream
 - The default image-description model is `gpt-4.1-mini`.
 - The default narrative model is `gpt-5.4`.
 - The script skips hidden files like `.DS_Store`.
 - The script appends each run to `descriptions.txt`, so previous descriptions and narratives are preserved.
+=======
+- The default model is `gpt-4.1-mini`, but you can override it with `--model`.
+- The script accepts exactly one image at a time.
+- `imagetovideo.py` uses Runway `gen4_turbo`.
+- The default prompt treats each 4-image group as reference moments from one day.
+- Runway does not currently support 4 images in a single `image_to_video` generation. This script handles 4 images by generating adjacent transition clips and splitting the total requested duration across them, then optionally merging them with `ffmpeg`.
+>>>>>>> Stashed changes
 - Never commit your real API key, `.env`, or any file containing secrets.
 
 
