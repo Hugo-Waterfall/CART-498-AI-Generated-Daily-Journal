@@ -12,11 +12,20 @@ DEFAULT_INPUT_DIR = Path("input_images")
 DEFAULT_OUTPUT_FILE = Path("descriptions.txt")
 DEFAULT_IMAGE_MODEL = "gpt-4.1-mini"
 DEFAULT_NARRATIVE_MODEL = "gpt-5.4"
-DEFAULT_PROMPT = "Describe this image in clear, detailed text."
+
+DEFAULT_PROMPT = (
+    "Describe this image in two parts:"
+    "1. Objective Description - Clearly and precisely describe only what is directly visible in the image (people, objects, setting, actions) without interpretation."
+    "2. Inferred Context (Uncertain) - Suggest possible emotions, intentions, or situations based on the image. These should be speculative and expressed with uncertainty (e.g., “perhaps,” “it seems,” “likely”)."
+    "Avoid making definitive claims about things that cannot be directly observed."
+)
+
 DEFAULT_NARRATIVE_PROMPT = (
-    "Write a short, 4-sentence narrative based upon the following image descriptions. "
-    "Consider the first description as the beginning of the story and the last "
-    "description as the end."
+    "Write a short, 2-3 sentence first-person journal entry based on the following image descriptions. The entry should describe a single day, moving from morning to evening, using the first description as the beginning and the last as the end."
+    "Create a smooth and engaging narrative by filling in gaps between moments, inferring emotions, intentions, and events where necessary. These inferences should feel natural and believable, but not definitively certain."
+    "The tone should resemble a social-media-style reflection: engaging, reflective, slightly idealized, slightly polished and narratively cohesive."
+    "The narrative should read as if it confidently tells a story, even though it is built from incomplete and potentially misleading information."
+    "Do not mention that the information is based on images."
 )
 SUPPORTED_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
 
