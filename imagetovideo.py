@@ -18,6 +18,8 @@ DEFAULT_MODEL = "gen4_turbo"
 DEFAULT_TOTAL_DURATION = 7
 DEFAULT_RATIO = "1280:720"
 DEFAULT_GROUP_SIZE = 2
+DEFAULT_INPUT_DIR = "input_images"
+DEFAULT_DESCRIPTIONS_FILE = "descriptions.txt"
 DEFAULT_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 MODEL_ALLOWED_DURATIONS = {
     "gen4_turbo": (5, 10),
@@ -27,7 +29,15 @@ MODEL_ALLOWED_DURATIONS = {
     "veo3.1": (4, 6, 8),
     "veo3.1_fast": (4, 6, 8),
 }
-DEFAULT_PROMPT_TEMPLATE = (
+MODEL_SUPPORTS_LAST_FRAME = {
+    "gen4_turbo": False,
+    "gen4.5": False,
+    "gen3a_turbo": True,
+    "veo3": False,
+    "veo3.1": True,
+    "veo3.1_fast": True,
+}
+DEFAULT_FALLBACK_PROMPT = (
     "Create a smooth cinematic travel journal video using two input images. "
     "Start from the first image as a hotel scene. Introduce a traveler naturally in the environment, "
     "preparing to leave, stepping outside, or beginning to walk forward. Add subtle environmental motion such as wind, "
@@ -42,20 +52,25 @@ DEFAULT_PROMPT_TEMPLATE = (
 MAX_DATA_URI_BYTES = 5 * 1024 * 1024
 MAX_TASK_RETRIES = 3
 RETRY_DELAY_SECONDS = 10
+TEMP_IMAGE_QUALITY_STEPS = (90, 80, 70, 60, 50, 40)
+TEMP_IMAGE_MAX_DIMENSIONS = (1920, 1920)
+
+# By default, video generation uses the latest Narrative block from descriptions.txt.
+# This fallback prompt is only used if that file is missing or contains no narrative.
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Generate Runway image-to-video clips from a folder of images. "
-            "Each batch of 4 images becomes 3 transition clips, with optional stitching "
+            "Each batch of images becomes transition clips between adjacent pairs, with optional stitching "
             "into one final video."
         )
     )
     parser.add_argument(
         "--input-dir",
-        required=True,
-        help="Folder containing source images.",
+        default=DEFAULT_INPUT_DIR,
+        help=f"Folder containing source images. Default: {DEFAULT_INPUT_DIR}",
     )
     parser.add_argument(
         "--output-dir",
@@ -66,7 +81,7 @@ def parse_args() -> argparse.Namespace:
         "--group-size",
         type=int,
         default=DEFAULT_GROUP_SIZE,
-        help="How many images belong to one final video. Default: 4",
+        help=f"How many images belong to one final video. Default: {DEFAULT_GROUP_SIZE}",
     )
     parser.add_argument(
         "--total-duration",
@@ -88,9 +103,20 @@ def parse_args() -> argparse.Namespace:
         help=f"Runway model to use. Default: {DEFAULT_MODEL}",
     )
     parser.add_argument(
+        "--descriptions-file",
+        default=DEFAULT_DESCRIPTIONS_FILE,
+        help=(
+            "Text file containing generated image descriptions and narratives. "
+            f"Default: {DEFAULT_DESCRIPTIONS_FILE}"
+        ),
+    )
+    parser.add_argument(
         "--prompt",
-        default=DEFAULT_PROMPT_TEMPLATE,
-        help="Prompt text applied to every transition clip.",
+        default=None,
+        help=(
+            "Prompt text applied to every transition clip. "
+            "If omitted, the latest Narrative from the descriptions file is used."
+        ),
     )
     parser.add_argument(
         "--stitch",
@@ -130,9 +156,49 @@ def require_api_key() -> None:
         )
 
 
+def load_latest_narrative(descriptions_path: Path) -> str:
+    if not descriptions_path.is_file():
+        return DEFAULT_FALLBACK_PROMPT
+
+    content = descriptions_path.read_text(encoding="utf-8")
+    marker = "Narrative:"
+    marker_index = content.rfind(marker)
+    if marker_index == -1:
+        return DEFAULT_FALLBACK_PROMPT
+
+    narrative = content[marker_index + len(marker) :].strip()
+    if not narrative:
+        return DEFAULT_FALLBACK_PROMPT
+
+    lines: list[str] = []
+    for line in narrative.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("Run: "):
+            break
+        lines.append(stripped)
+
+    cleaned = " ".join(part for part in lines if part).strip()
+    return cleaned or DEFAULT_FALLBACK_PROMPT
+
+
+def resolve_prompt_text(args: argparse.Namespace, descriptions_path: Path) -> tuple[str, str]:
+    if args.prompt:
+        return args.prompt, "manual --prompt"
+
+    narrative = load_latest_narrative(descriptions_path)
+    if narrative != DEFAULT_FALLBACK_PROMPT:
+        return narrative, f"latest Narrative from {descriptions_path.name}"
+
+    return narrative, "fallback built-in prompt"
+
+
 def list_images(input_dir: Path) -> list[Path]:
     if not input_dir.is_dir():
         raise SystemExit(f"Input directory not found: {input_dir}")
+
+    preferred_images = [input_dir / "image1.jpg", input_dir / "image2.png"]
+    if all(path.is_file() for path in preferred_images):
+        return preferred_images
 
     images = sorted(
         path
@@ -207,6 +273,34 @@ def build_data_uri(image_path: Path) -> str:
     return f"data:{mime_type};base64,{encoded}"
 
 
+def create_small_temp_image(image_path: Path) -> Path:
+    try:
+        from PIL import Image
+    except ImportError as exc:
+        raise SystemExit(
+            "Image optimization requires Pillow. Install it with `pip install -r requirements.txt`."
+        ) from exc
+
+    with Image.open(image_path) as original_image:
+        image = original_image.convert("RGB")
+        image.thumbnail(TEMP_IMAGE_MAX_DIMENSIONS)
+
+        for quality in TEMP_IMAGE_QUALITY_STEPS:
+            with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as handle:
+                temp_path = Path(handle.name)
+
+            image.save(temp_path, format="JPEG", quality=quality, optimize=True)
+            if temp_path.stat().st_size <= MAX_DATA_URI_BYTES:
+                return temp_path
+
+            temp_path.unlink(missing_ok=True)
+
+    raise SystemExit(
+        f"Could not compress {image_path.name} below 5 MB for upload. "
+        "Try a smaller source image."
+    )
+
+
 def resolve_prompt_image(client, image_path: Path) -> str:
     file_size = image_path.stat().st_size
     uploads_api = getattr(client, "uploads", None)
@@ -226,10 +320,25 @@ def resolve_prompt_image(client, image_path: Path) -> str:
     if file_size <= MAX_DATA_URI_BYTES:
         return build_data_uri(image_path)
 
-    raise SystemExit(
-        f"Could not prepare {image_path.name} for upload. "
-        "Update the `runwayml` package or use images smaller than 5 MB."
+    print(
+        f"{image_path.name} is larger than 5 MB. Creating a temporary optimized copy for upload...",
+        flush=True,
     )
+    temp_image_path = create_small_temp_image(image_path)
+    try:
+        return build_data_uri(temp_image_path)
+    finally:
+        temp_image_path.unlink(missing_ok=True)
+
+
+def build_prompt_image_payload(model: str, first_ref: str, last_ref: str | None) -> str | list[dict[str, str]]:
+    if MODEL_SUPPORTS_LAST_FRAME.get(model, False) and last_ref:
+        return [
+            {"uri": first_ref, "position": "first"},
+            {"uri": last_ref, "position": "last"},
+        ]
+
+    return first_ref
 
 
 def extract_video_url(task_output) -> str:
@@ -331,7 +440,9 @@ def main() -> None:
 
     input_dir = Path(args.input_dir).expanduser().resolve()
     output_dir = Path(args.output_dir).expanduser().resolve()
+    descriptions_path = Path(args.descriptions_file).expanduser().resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
+    prompt_text, prompt_source = resolve_prompt_text(args, descriptions_path)
 
     ffmpeg_path = shutil.which("ffmpeg")
     if args.stitch and not ffmpeg_path:
@@ -353,6 +464,8 @@ def main() -> None:
         f"Using {args.model} to build a multi-clip transition sequence from adjacent image pairs.",
         flush=True,
     )
+    print(f"Prompt source: {prompt_source}", flush=True)
+    print(f"Using prompt: {prompt_text}", flush=True)
 
     for group_index, group in enumerate(groups, start=1):
         group_name = f"group_{group_index:02d}"
@@ -377,6 +490,7 @@ def main() -> None:
         ):
             first_ref = resolve_prompt_image(client, first_image)
             last_ref = resolve_prompt_image(client, last_image)
+            prompt_image_payload = build_prompt_image_payload(args.model, first_ref, last_ref)
 
             clip_name = (
                 f"{group_name}_clip_{clip_index:02d}_"
@@ -389,16 +503,19 @@ def main() -> None:
                 f"{first_image.name} -> {last_image.name} ({clip_duration}s)",
                 flush=True,
             )
+            if not MODEL_SUPPORTS_LAST_FRAME.get(args.model, False):
+                print(
+                    f"Model {args.model} only supports a first-frame prompt image. "
+                    f"{last_image.name} will guide the narrative indirectly but cannot be sent as a true last frame.",
+                    flush=True,
+                )
 
             for attempt in range(1, MAX_TASK_RETRIES + 1):
                 try:
                     task = client.image_to_video.create(
                         model=args.model,
-                        prompt_image=[
-                            {"uri": first_ref, "position": "first"},
-                            {"uri": last_ref, "position": "last"},
-                        ],
-                        prompt_text=args.prompt,
+                        prompt_image=prompt_image_payload,
+                        prompt_text=prompt_text,
                         ratio=args.ratio,
                         duration=clip_duration,
                         audio=False,

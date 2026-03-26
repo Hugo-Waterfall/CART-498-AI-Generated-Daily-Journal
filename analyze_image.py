@@ -10,8 +10,12 @@ from pathlib import Path
 
 DEFAULT_INPUT_DIR = Path("input_images")
 DEFAULT_OUTPUT_FILE = Path("descriptions.txt")
+DEFAULT_AUDIO_DIR = Path("audio files")
 DEFAULT_IMAGE_MODEL = "gpt-4.1-mini"
 DEFAULT_NARRATIVE_MODEL = "gpt-5.4"
+DEFAULT_TTS_MODEL_ID = "eleven_multilingual_v2"
+DEFAULT_TTS_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
+DEFAULT_TTS_OUTPUT_FORMAT = "mp3_44100_128"
 
 DEFAULT_PROMPT = (
     "Describe this image in two parts:"
@@ -45,6 +49,11 @@ def parse_args() -> argparse.Namespace:
         help=f"Text file to append descriptions to. Default: {DEFAULT_OUTPUT_FILE}",
     )
     parser.add_argument(
+        "--audio-dir",
+        default=str(DEFAULT_AUDIO_DIR),
+        help=f"Folder to save generated audio files. Default: {DEFAULT_AUDIO_DIR}",
+    )
+    parser.add_argument(
         "--prompt",
         default=DEFAULT_PROMPT,
         help=f"Instruction for the model. Default: {DEFAULT_PROMPT!r}",
@@ -63,6 +72,24 @@ def parse_args() -> argparse.Namespace:
         "--narrative-prompt",
         default=DEFAULT_NARRATIVE_PROMPT,
         help="Instruction for generating the final narrative.",
+    )
+    parser.add_argument(
+        "--tts-model-id",
+        default=DEFAULT_TTS_MODEL_ID,
+        help=f"ElevenLabs model to use for text-to-speech. Default: {DEFAULT_TTS_MODEL_ID}",
+    )
+    parser.add_argument(
+        "--tts-voice-id",
+        default=DEFAULT_TTS_VOICE_ID,
+        help=f"ElevenLabs voice ID to use for text-to-speech. Default: {DEFAULT_TTS_VOICE_ID}",
+    )
+    parser.add_argument(
+        "--tts-output-format",
+        default=DEFAULT_TTS_OUTPUT_FORMAT,
+        help=(
+            "ElevenLabs output format for the generated audio file. "
+            f"Default: {DEFAULT_TTS_OUTPUT_FORMAT}"
+        ),
     )
     return parser.parse_args()
 
@@ -89,6 +116,13 @@ def require_api_key() -> None:
     if not os.environ.get("OPENAI_API_KEY"):
         raise SystemExit(
             "Missing OPENAI_API_KEY. Export it in your shell or load it from a local .env file before running this script."
+        )
+
+
+def require_elevenlabs_api_key() -> None:
+    if not os.environ.get("ELEVENLABS_API_KEY"):
+        raise SystemExit(
+            "Missing ELEVENLABS_API_KEY. Add it to your local .env file before running this script."
         )
 
 
@@ -157,8 +191,60 @@ def generate_narrative(
     return response.output_text.strip()
 
 
+def build_audio_output_path(audio_dir: str, output_format: str) -> Path:
+    directory = Path(audio_dir).expanduser().resolve()
+    directory.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    extension = output_format.split("_", 1)[0]
+    return directory / f"narrative_{timestamp}.{extension}"
+
+
+def save_audio_chunks(audio, output_path: Path) -> None:
+    if isinstance(audio, (bytes, bytearray)):
+        output_path.write_bytes(bytes(audio))
+        return
+
+    if hasattr(audio, "read"):
+        data = audio.read()
+        if isinstance(data, str):
+            data = data.encode("utf-8")
+        output_path.write_bytes(data)
+        return
+
+    with output_path.open("wb") as handle:
+        for chunk in audio:
+            if not chunk:
+                continue
+            if isinstance(chunk, str):
+                chunk = chunk.encode("utf-8")
+            handle.write(chunk)
+
+
+def generate_narration_audio(
+    elevenlabs_client,
+    narrative: str,
+    audio_dir: str,
+    voice_id: str,
+    model_id: str,
+    output_format: str,
+) -> Path:
+    output_path = build_audio_output_path(audio_dir, output_format)
+    audio = elevenlabs_client.text_to_speech.convert(
+        voice_id=voice_id,
+        output_format=output_format,
+        text=narrative,
+        model_id=model_id,
+    )
+    save_audio_chunks(audio, output_path)
+    return output_path
+
+
 def append_descriptions(
-    output_file: str, descriptions: list[tuple[Path, str]], narrative: str
+    output_file: str,
+    descriptions: list[tuple[Path, str]],
+    narrative: str,
+    audio_path: Path,
 ) -> Path:
     output_path = Path(output_file).expanduser().resolve()
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -174,6 +260,8 @@ def append_descriptions(
     lines.append("Narrative:")
     lines.append(narrative or "[No narrative returned]")
     lines.append("")
+    lines.append(f"Audio File: {audio_path}")
+    lines.append("")
 
     with output_path.open("a", encoding="utf-8") as handle:
         handle.write("\n".join(lines))
@@ -185,6 +273,7 @@ def main() -> None:
     args = parse_args()
     load_local_env()
     require_api_key()
+    require_elevenlabs_api_key()
 
     try:
         from openai import OpenAI
@@ -193,8 +282,16 @@ def main() -> None:
             "Missing dependency: openai. Install it with `pip install -r requirements.txt`."
         ) from exc
 
+    try:
+        from elevenlabs import ElevenLabs
+    except ImportError as exc:
+        raise SystemExit(
+            "Missing dependency: elevenlabs. Install it with `pip install -r requirements.txt`."
+        ) from exc
+
     image_paths = collect_image_paths(args.input_dir)
     client = OpenAI()
+    elevenlabs_client = ElevenLabs(api_key=os.environ["ELEVENLABS_API_KEY"])
     descriptions = []
 
     for image_path in image_paths:
@@ -210,9 +307,19 @@ def main() -> None:
     )
     print("Generated narrative")
 
-    output_path = append_descriptions(args.output_file, descriptions, narrative)
+    audio_path = generate_narration_audio(
+        elevenlabs_client,
+        narrative,
+        args.audio_dir,
+        args.tts_voice_id,
+        args.tts_model_id,
+        args.tts_output_format,
+    )
+    print(f"Saved audio to {audio_path}")
+
+    output_path = append_descriptions(args.output_file, descriptions, narrative, audio_path)
     print(
-        f"Appended descriptions and narrative for {len(descriptions)} images to {output_path}"
+        f"Appended descriptions, narrative, and audio path for {len(descriptions)} images to {output_path}"
     )
 
 

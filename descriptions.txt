@@ -96,3 +96,23 @@ It seems like the two women might be enjoying a shared meal, possibly tasting di
 
 Narrative:
 Started the morning in the studio, headphones on and mic live, and I couldn’t resist snapping a quick selfie because everything just felt especially good and in flow today. By evening, that energy turned into one of those easy dinner moments over shared bowls, skewers, and good conversation with friends—exactly the kind of simple, happy ending that makes a long day feel worth it.
+Run: 2026-03-26 20:13:16
+
+Image: image1.jpg
+1. Objective Description:
+The image shows a computer lab with multiple rows of desks, each desk equipped with a computer, keyboard, and mouse. Most computer monitors are turned off except for one monitor that is active and displaying a blue screen with the time "4:43." There is a blackboard on the left wall with some handwritten notes and diagrams. The room has white walls, a light-colored floor, and fluorescent ceiling lights. There is a single person sitting at the back of the room, facing away from the camera. The computer lab appears orderly and clean.
+
+2. Inferred Context (Uncertain):
+It seems likely that the lab is mostly empty, possibly before or after a class or work session, given that only one person is present. The individual might be working quietly or waiting for something, such as a class to start or to complete a task. The turned-off monitors suggest the lab is not currently in active use by a group. The notes on the blackboard hint at a technical or educational setting, perhaps involving computer programming or systems.
+
+Image: image2.jpg
+1. Objective Description:
+The image shows an outside view through a window. The scene includes several multi-story buildings, mostly made of concrete and glass, arranged closely together. The buildings appear to be office or commercial structures. There is a narrow alleyway or street between the buildings, which seems wet, possibly from recent rain or melting snow. The window frame and part of a blind are visible on the left side of the image.
+
+2. Inferred Context (Uncertain):
+Perhaps it is a rainy or overcast day, given the wet ground and the grey sky outside. It seems to be taken from a higher floor inside an office or a similar building. The atmosphere might be quiet and still, as there are no visible people or vehicles active in the alleyway. The photo could be capturing a typical urban scene during a pause in daily activities.
+
+Narrative:
+I started the morning in a nearly empty computer lab, the kind of quiet that makes even the glow of one screen feel dramatic, and it put me in a focused, slightly introspective mood. Later, I found myself looking out at the rain-dark alley between buildings, and the whole gray city felt strangely calm—like the day never needed to be loud to feel full.
+
+Audio File: /Users/everybodysgayforgustav/Desktop/CART 498/CART-498-AI-Generated-Daily-Journal/audio files/narrative_20260326_201312.mp3
