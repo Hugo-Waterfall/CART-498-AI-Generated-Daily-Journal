@@ -5,6 +5,7 @@ Small Python utilities for:
 - analyzing all images in `input_images`
 - generating a short journal-style narrative from those image descriptions
 - converting that narrative to speech with ElevenLabs
+- serving a simple one-page website for image uploads and output playback
 - turning local image sequences into Runway video transitions
 
 ## Setup
@@ -45,6 +46,30 @@ set +a
 ```
 
 `.env` is ignored by Git, so it will not be committed unless you remove that rule.
+
+## Website
+
+Run the one-page upload site:
+
+```bash
+python3 app.py
+```
+
+Then open `http://127.0.0.1:8000`.
+
+What the website currently does:
+
+- accepts one or more uploaded images
+- analyzes each image with OpenAI
+- generates one final journal-style narrative
+- appends the run output to `descriptions.txt`
+- generates ElevenLabs narration audio and exposes it in an HTML audio player
+
+What it does not do yet:
+
+- generate the final image-to-video social post inside the web UI
+
+The current web output is intentionally the saved text block plus the ElevenLabs audio result, so the final video step can be plugged in later.
 
 ## Analyze Images
 
@@ -100,8 +125,10 @@ python3 imagetovideo.py \
 ## Notes
 
 - `analyze_image.py` uses `gpt-4.1-mini` for image descriptions and `gpt-5.4` for the final narrative by default.
+- `app.py` reuses the same analysis pipeline as `analyze_image.py`, so the CLI and website produce the same saved output format.
 - Generated narration audio is saved to `audio files/`.
 - `descriptions.txt` keeps an append-only log of each run, including the generated narrative and saved audio path.
+- Uploaded website images are stored temporarily in `web_uploads/`.
 - `imagetovideo.py` uses Runway `gen4_turbo` by default.
 - If `imagetovideo.py` is run without `--prompt`, it uses the latest `Narrative:` block from `descriptions.txt`.
 - Never commit your real API keys, `.env`, or any file containing secrets.

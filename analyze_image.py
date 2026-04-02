@@ -6,6 +6,7 @@ import mimetypes
 import os
 from datetime import datetime
 from pathlib import Path
+from typing import Sequence
 
 
 DEFAULT_INPUT_DIR = Path("input_images")
@@ -145,6 +146,28 @@ def collect_image_paths(input_dir: str) -> list[Path]:
     return image_paths
 
 
+def create_openai_client():
+    try:
+        from openai import OpenAI
+    except ImportError as exc:
+        raise SystemExit(
+            "Missing dependency: openai. Install it with `pip install -r requirements.txt`."
+        ) from exc
+
+    return OpenAI()
+
+
+def create_elevenlabs_client():
+    try:
+        from elevenlabs import ElevenLabs
+    except ImportError as exc:
+        raise SystemExit(
+            "Missing dependency: elevenlabs. Install it with `pip install -r requirements.txt`."
+        ) from exc
+
+    return ElevenLabs(api_key=os.environ["ELEVENLABS_API_KEY"])
+
+
 def build_data_url(image_path: Path) -> str:
     mime_type, _ = mimetypes.guess_type(image_path.name)
     if mime_type is None or not mime_type.startswith("image/"):
@@ -245,10 +268,25 @@ def append_descriptions(
     descriptions: list[tuple[Path, str]],
     narrative: str,
     audio_path: Path,
+    run_text: str | None = None,
 ) -> Path:
     output_path = Path(output_file).expanduser().resolve()
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    if run_text is None:
+        run_text = build_run_log_text(descriptions, narrative, audio_path)
+
+    with output_path.open("a", encoding="utf-8") as handle:
+        handle.write(run_text)
+
+    return output_path
+
+
+def build_run_log_text(
+    descriptions: list[tuple[Path, str]],
+    narrative: str,
+    audio_path: Path,
+) -> str:
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     lines = [f"Run: {timestamp}", ""]
 
@@ -263,63 +301,95 @@ def append_descriptions(
     lines.append(f"Audio File: {audio_path}")
     lines.append("")
 
-    with output_path.open("a", encoding="utf-8") as handle:
-        handle.write("\n".join(lines))
-
-    return output_path
+    return "\n".join(lines)
 
 
-def main() -> None:
-    args = parse_args()
+def run_analysis_pipeline(
+    image_paths: Sequence[Path],
+    output_file: str = str(DEFAULT_OUTPUT_FILE),
+    audio_dir: str = str(DEFAULT_AUDIO_DIR),
+    prompt: str = DEFAULT_PROMPT,
+    image_model: str = DEFAULT_IMAGE_MODEL,
+    narrative_model: str = DEFAULT_NARRATIVE_MODEL,
+    narrative_prompt: str = DEFAULT_NARRATIVE_PROMPT,
+    tts_model_id: str = DEFAULT_TTS_MODEL_ID,
+    tts_voice_id: str = DEFAULT_TTS_VOICE_ID,
+    tts_output_format: str = DEFAULT_TTS_OUTPUT_FORMAT,
+) -> dict:
     load_local_env()
     require_api_key()
     require_elevenlabs_api_key()
 
-    try:
-        from openai import OpenAI
-    except ImportError as exc:
-        raise SystemExit(
-            "Missing dependency: openai. Install it with `pip install -r requirements.txt`."
-        ) from exc
+    resolved_image_paths = [Path(path).expanduser().resolve() for path in image_paths]
+    if not resolved_image_paths:
+        raise SystemExit("No images were provided for analysis.")
 
-    try:
-        from elevenlabs import ElevenLabs
-    except ImportError as exc:
-        raise SystemExit(
-            "Missing dependency: elevenlabs. Install it with `pip install -r requirements.txt`."
-        ) from exc
+    client = create_openai_client()
+    elevenlabs_client = create_elevenlabs_client()
+    descriptions: list[tuple[Path, str]] = []
 
-    image_paths = collect_image_paths(args.input_dir)
-    client = OpenAI()
-    elevenlabs_client = ElevenLabs(api_key=os.environ["ELEVENLABS_API_KEY"])
-    descriptions = []
-
-    for image_path in image_paths:
-        description = analyze_image(client, image_path, args.prompt, args.image_model)
+    for image_path in resolved_image_paths:
+        description = analyze_image(client, image_path, prompt, image_model)
         descriptions.append((image_path, description))
-        print(f"Analyzed {image_path.name}")
 
     narrative = generate_narrative(
         client,
         [description for _, description in descriptions],
-        args.narrative_prompt,
-        args.narrative_model,
+        narrative_prompt,
+        narrative_model,
     )
-    print("Generated narrative")
 
     audio_path = generate_narration_audio(
         elevenlabs_client,
         narrative,
-        args.audio_dir,
-        args.tts_voice_id,
-        args.tts_model_id,
-        args.tts_output_format,
+        audio_dir,
+        tts_voice_id,
+        tts_model_id,
+        tts_output_format,
     )
-    print(f"Saved audio to {audio_path}")
 
-    output_path = append_descriptions(args.output_file, descriptions, narrative, audio_path)
+    run_text = build_run_log_text(descriptions, narrative, audio_path)
+    output_path = append_descriptions(
+        output_file,
+        descriptions,
+        narrative,
+        audio_path,
+        run_text=run_text,
+    )
+
+    return {
+        "descriptions": descriptions,
+        "narrative": narrative,
+        "audio_path": audio_path,
+        "output_path": output_path,
+        "run_text": run_text,
+    }
+
+
+def main() -> None:
+    args = parse_args()
+    image_paths = collect_image_paths(args.input_dir)
+    result = run_analysis_pipeline(
+        image_paths=image_paths,
+        output_file=args.output_file,
+        audio_dir=args.audio_dir,
+        prompt=args.prompt,
+        image_model=args.image_model,
+        narrative_model=args.narrative_model,
+        narrative_prompt=args.narrative_prompt,
+        tts_model_id=args.tts_model_id,
+        tts_voice_id=args.tts_voice_id,
+        tts_output_format=args.tts_output_format,
+    )
+
+    for image_path, _ in result["descriptions"]:
+        print(f"Analyzed {image_path.name}")
+
+    print("Generated narrative")
+    print(f"Saved audio to {result['audio_path']}")
     print(
-        f"Appended descriptions, narrative, and audio path for {len(descriptions)} images to {output_path}"
+        "Appended descriptions, narrative, and audio path for "
+        f"{len(result['descriptions'])} images to {result['output_path']}"
     )
 
 

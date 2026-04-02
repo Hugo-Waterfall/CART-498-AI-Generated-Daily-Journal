@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Daily Journal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <p class="eyebrow">AI Daily Journal</p>
+        <h1>Turn a few photos into an invented social post.</h1>
+        <p class="lede">
+          Upload images from your day and the current pipeline will interpret them into one polished narrative.
+          For now, the website outputs the saved text log and the ElevenLabs narration that will eventually drive the final video.
+        </p>
+      </section>
+
+      <section class="panel upload-panel">
+        <div class="panel-copy">
+          <h2>Upload Images</h2>
+          <p>Choose a few images. The app will analyze them, generate a single rewritten day-story, save it to <code>descriptions.txt</code>, and produce narration audio.</p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+          <label class="dropzone" for="images">
+            <span class="dropzone-title">Select images</span>
+            <span class="dropzone-copy">PNG, JPG, JPEG, WEBP, or GIF. One image works, but a sequence tells a better story.</span>
+          </label>
+          <input id="images" name="images" type="file" accept="image/*" multiple required>
+          <button type="submit">Generate Narrative + Audio</button>
+        </form>
+
+        {% if error %}
+          <div class="message error">
+            <strong>Couldn’t complete the run.</strong>
+            <p>{{ error }}</p>
+          </div>
+        {% endif %}
+      </section>
+
+      {% if result %}
+        <section class="results-grid">
+          <article class="panel result-card">
+            <h2>Generated Text</h2>
+            <p class="meta">Processed {{ result.image_count }} image{% if result.image_count != 1 %}s{% endif %}: {{ result.image_names|join(', ') }}</p>
+            <pre>{{ result.run_text }}</pre>
+          </article>
+
+          <article class="panel result-card">
+            <h2>Narration Audio</h2>
+            <p class="meta">Saved to <code>{{ result.audio_path }}</code></p>
+            <audio controls preload="metadata" src="{{ result.audio_url }}"></audio>
+            <p class="meta">The same text was also appended to <code>{{ result.descriptions_path }}</code>.</p>
+          </article>
+        </section>
+      {% endif %}
+    </main>
+  </body>
+</html>
