@@ -7,6 +7,7 @@ Small Python utilities for:
 - converting that narrative to speech with ElevenLabs
 - serving a simple one-page website for image uploads and output playback
 - turning local image sequences into Runway video transitions
+- directing a Veo-based pipeline from images to scenes, shots, clips, and a final edit
 
 ## Setup
 
@@ -23,6 +24,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+Optional audio dependency for narration:
+
+```bash
+pip install elevenlabs
+```
+
 3. Add your API keys without hardcoding them into the scripts:
 
 ```bash
@@ -35,6 +42,10 @@ Then edit `.env` and add your real keys:
 OPENAI_API_KEY=your_real_openai_key_here
 ELEVENLABS_API_KEY=your_real_elevenlabs_key_here
 RUNWAYML_API_SECRET=your_real_runway_key_here
+GOOGLE_CLOUD_PROJECT=your_google_cloud_project_id
+GOOGLE_CLOUD_LOCATION=global
+GOOGLE_GENAI_USE_VERTEXAI=True
+GOOGLE_CLOUD_VEO_OUTPUT_GCS_URI=gs://your-bucket/veo-output
 ```
 
 Load them into your shell:
@@ -70,6 +81,12 @@ What it does not do yet:
 - generate the final image-to-video social post inside the web UI
 
 The current web output is intentionally the saved text block plus the ElevenLabs audio result, so the final video step can be plugged in later.
+
+For the Veo pipeline, authenticate Google Cloud locally with Application Default Credentials before running:
+
+```bash
+gcloud auth application-default login
+```
 
 ## Analyze Images
 
@@ -122,6 +139,24 @@ python3 imagetovideo.py \
   --stitch
 ```
 
+## Director Pipeline For Veo
+
+Build a shot plan from your images, generate Veo clips, stitch them, and optionally add narration:
+
+```bash
+python3 director_pipeline.py \
+  --input-dir "input_images" \
+  --veo-model "veo-3.1-fast-generate-001"
+```
+
+Plan everything without generating Veo clips yet:
+
+```bash
+python3 director_pipeline.py \
+  --input-dir "input_images" \
+  --skip-video
+```
+
 ## Notes
 
 - `analyze_image.py` uses `gpt-4.1-mini` for image descriptions and `gpt-5.4` for the final narrative by default.
@@ -131,4 +166,7 @@ python3 imagetovideo.py \
 - Uploaded website images are stored temporarily in `web_uploads/`.
 - `imagetovideo.py` uses Runway `gen4_turbo` by default.
 - If `imagetovideo.py` is run without `--prompt`, it uses the latest `Narrative:` block from `descriptions.txt`.
+- `director_pipeline.py` uses OpenAI to create image analyses and a shot plan, then calls Veo through Vertex AI using `google-genai`.
+- Veo outputs are written to the Cloud Storage prefix configured by `GOOGLE_CLOUD_VEO_OUTPUT_GCS_URI`, then downloaded back into the local run folder.
+- `elevenlabs` is optional for `director_pipeline.py` when you run with `--skip-audio`.
 - Never commit your real API keys, `.env`, or any file containing secrets.
