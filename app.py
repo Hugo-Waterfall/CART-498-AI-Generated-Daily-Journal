@@ -22,6 +22,11 @@ DEFAULT_OUTPUT_FILE = BASE_DIR / "descriptions.txt"
 DEFAULT_AUDIO_DIR = BASE_DIR / "audio files"
 MAX_UPLOAD_SIZE_BYTES = 32 * 1024 * 1024
 
+# Ensure required directories exist in fresh environments (e.g., Render).
+UPLOAD_ROOT.mkdir(parents=True, exist_ok=True)
+VIDEO_ROOT.mkdir(parents=True, exist_ok=True)
+DEFAULT_AUDIO_DIR.mkdir(parents=True, exist_ok=True)
+
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_SIZE_BYTES
 
@@ -101,7 +106,6 @@ def run_director_pipeline(
     generate_video: bool = False,
     sequence_mode: str = "adjacent-pairs",
 ) -> dict:
-    VIDEO_ROOT.mkdir(parents=True, exist_ok=True)
     cmd = [
         sys.executable,
         str(BASE_DIR / "director_pipeline.py"),
@@ -114,7 +118,13 @@ def run_director_pipeline(
     ]
     if not generate_video:
         cmd.append("--skip-video")
-    subprocess.run(cmd, check=True)
+    try:
+        subprocess.run(cmd, check=True, capture_output=True, text=True)
+    except subprocess.CalledProcessError as exc:
+        stdout = exc.stdout or ""
+        stderr = exc.stderr or ""
+        details = "\n".join(line for line in [stdout.strip(), stderr.strip()] if line)
+        raise RuntimeError(f"Pipeline failed.\n{details}" if details else "Pipeline failed.") from exc
     run_dirs = [path for path in VIDEO_ROOT.iterdir() if path.is_dir()]
     if not run_dirs:
         raise FileNotFoundError("No generated video runs were found.")
