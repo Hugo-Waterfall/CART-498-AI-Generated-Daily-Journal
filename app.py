@@ -11,7 +11,7 @@ from flask import Flask, abort, render_template, request, send_file, url_for
 from werkzeug.exceptions import RequestEntityTooLarge
 from werkzeug.utils import secure_filename
 
-from analyze_image import SUPPORTED_SUFFIXES, run_analysis_pipeline
+from analyze_image import SUPPORTED_SUFFIXES
 
 
 BASE_DIR = Path(__file__).resolve().parent

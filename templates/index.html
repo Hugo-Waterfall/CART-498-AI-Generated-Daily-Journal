@@ -75,6 +75,7 @@
               </label>
             </div>
           </div>
+          <div id="upload-warning" class="upload-warning" role="alert" aria-live="polite"></div>
           <label class="toggle">
             <input type="checkbox" name="use_samples">
             Use the 4 sample images from <code>input_images</code>
@@ -132,6 +133,67 @@
   </body>
   <script>
     const inputIds = ["image_1", "image_2", "image_3", "image_4"];
+    const sizes = new Map();
+    const warningEl = document.getElementById("upload-warning");
+    const useSamples = document.querySelector("input[name='use_samples']");
+    const form = document.querySelector(".upload-form");
+    const inputs = inputIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const setWarning = (message) => {
+      if (!warningEl) return;
+      warningEl.textContent = message || "";
+      warningEl.classList.toggle("visible", Boolean(message));
+    };
+
+    const computeOrientation = (size) => (size.width >= size.height ? "landscape" : "portrait");
+
+    const resetPreviews = () => {
+      inputIds.forEach((id, index) => {
+        const preview = document.getElementById(`preview-${index + 1}`);
+        if (!preview) return;
+        preview.innerHTML = "";
+        const placeholder = document.createElement("span");
+        placeholder.className = "upload-placeholder";
+        placeholder.textContent = `Image ${index + 1} preview`;
+        preview.appendChild(placeholder);
+      });
+    };
+
+    const clearWarningIfValid = () => {
+      if (!warningEl || !warningEl.textContent) return;
+      if (sizes.size < 4) return;
+      const values = Array.from(sizes.values());
+      const first = values[0];
+      const allSame = values.every(
+        (size) => size.width === first.width && size.height === first.height
+      );
+      const orientations = new Set(values.map((size) => computeOrientation(size)));
+      if (allSame && orientations.size <= 1) {
+        setWarning("");
+      }
+    };
+
+    const checkForMismatch = () => {
+      if (sizes.size < 2) return;
+      const values = Array.from(sizes.values());
+      const first = values[0];
+      const allSame = values.every(
+        (size) => size.width === first.width && size.height === first.height
+      );
+      const orientations = new Set(values.map((size) => computeOrientation(size)));
+      if (!allSame) {
+        setWarning(
+          "Image sizes do not match. Please upload 4 images with the same width and height."
+        );
+      } else if (orientations.size > 1) {
+        setWarning(
+          "Mixed orientation detected. Please use all landscape or all portrait images."
+        );
+      }
+    };
+
     inputIds.forEach((id, index) => {
       const input = document.getElementById(id);
       const preview = document.getElementById(`preview-${index + 1}`);
@@ -141,6 +203,7 @@
         const file = input.files && input.files[0];
         preview.innerHTML = "";
         if (!file) {
+          sizes.delete(id);
           const placeholder = document.createElement("span");
           placeholder.className = "upload-placeholder";
           placeholder.textContent = `Image ${index + 1} preview`;
@@ -151,9 +214,67 @@
         const img = document.createElement("img");
         img.alt = `Preview ${index + 1}`;
         img.src = URL.createObjectURL(file);
-        img.onload = () => URL.revokeObjectURL(img.src);
+        img.onload = () => {
+          sizes.set(id, { width: img.naturalWidth, height: img.naturalHeight });
+          checkForMismatch();
+          clearWarningIfValid();
+          URL.revokeObjectURL(img.src);
+        };
         preview.appendChild(img);
       });
     });
+
+    if (useSamples) {
+      useSamples.addEventListener("change", () => {
+        if (useSamples.checked) {
+          sizes.clear();
+          inputs.forEach((input) => {
+            input.value = "";
+            input.disabled = true;
+          });
+          resetPreviews();
+          setWarning("Using the 4 sample images from input_images.");
+        } else {
+          inputs.forEach((input) => {
+            input.disabled = false;
+          });
+          setWarning("");
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener("submit", (event) => {
+        if (useSamples && useSamples.checked) {
+          return;
+        }
+        if (sizes.size < 4) {
+          setWarning("Please upload all 4 images before generating.");
+          event.preventDefault();
+          return;
+        }
+        const values = Array.from(sizes.values());
+        const first = values[0];
+        const allSame = values.every(
+          (size) => size.width === first.width && size.height === first.height
+        );
+        const orientations = new Set(values.map((size) => computeOrientation(size)));
+        if (!allSame) {
+          setWarning(
+            "Image sizes do not match. Please upload 4 images with the same width and height."
+          );
+          event.preventDefault();
+          return;
+        }
+        if (orientations.size > 1) {
+          setWarning(
+            "Mixed orientation detected. Please use all landscape or all portrait images."
+          );
+          event.preventDefault();
+          return;
+        }
+        setWarning("");
+      });
+    }
   </script>
 </html>

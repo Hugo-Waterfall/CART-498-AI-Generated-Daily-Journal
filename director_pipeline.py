@@ -44,7 +44,9 @@ DIRECTOR_SYSTEM_PROMPT = (
     "Think like a film director, editor, and continuity supervisor at the same time. "
     "Turn still images into a coherent sequence of intentional scenes and shots. "
     "Prioritize continuity, believable motion, cinematic camera language, and editability. "
-    "Avoid slideshow logic, abrupt morphs, or vague prose. Produce practical shot plans that can drive Veo generation."
+    "Avoid slideshow logic, abrupt morphs, cross-fades, or vague prose. "
+    "Favour continuous camera movement and motivated motion between shots. "
+    "Produce practical shot plans that can drive Veo generation."
 )
 SCENE_DIRECTOR_SYSTEM_PROMPT = (
     "You are the Scene Director for an AI video pipeline. "
@@ -450,7 +452,8 @@ def build_director_prompt(
         f"{SHOT_BLUEPRINT_JSON_SHAPE}\n"
         "Constraints:\n"
         "- Keep the same subject identity and environment logic across shots.\n"
-        "- Avoid slideshow language, frame swapping, abrupt morphs, title cards, and fake presentation transitions.\n"
+        "- Avoid slideshow language, frame swapping, abrupt morphs, title cards, cross-fades, and fake presentation transitions.\n"
+        "- No powerpoint-style transitions. Use motivated, cinematic motion for transitions.\n"
         "- Use only the listed filenames when referencing images.\n"
         "- Do not include markdown fences.\n\n"
         "Scene plan:\n"
@@ -495,11 +498,13 @@ def build_prompt_director_prompt(shot_blueprint: dict, scene_plan: dict) -> str:
         f"{PROMPT_PLAN_JSON_SHAPE}\n"
         "Constraints:\n"
         "- Each prompt must describe natural motion, camera behavior, subject continuity, and environmental behavior.\n"
-        "- Each negative prompt should explicitly block slideshow transitions, abrupt morphs, broken anatomy, text overlays, and freeze-frame behavior.\n"
+        "- Each prompt should emphasize motivated, cinematic transitions (whip-pan, match-cut motion, parallax drift, rack-focus reveals).\n"
+        "- Each negative prompt should explicitly block slideshow transitions, abrupt morphs, cross-fades, broken anatomy, text overlays, and freeze-frame behavior.\n"
         "- Make each shot feel like a continuation of one camera move rather than a reset.\n"
         "- The opening moment of each shot should feel already in motion, not like a fresh start.\n"
         "- The ending frame of each shot should feel compositionally compatible with the next shot's opening energy.\n"
         "- Avoid language that implies a clean stop, a reset, or a scene break unless the shot blueprint explicitly requires it.\n"
+        "- No powerpoint-style transitions.\n"
         "- Keep prompts grounded in the shot blueprint and scene plan.\n"
         "- Do not include markdown fences.\n\n"
         "Scene plan:\n"
@@ -587,7 +592,8 @@ def build_adjacent_pair_shot_blueprint(
                 "action": (
                     f"Carry visual momentum from the mood and details of {first_name} into the environment of "
                     f"{second_name}, using plausible movement and continuity anchors rather than abrupt transformation. "
-                    f"The shot should feel already in progress at the start and should not come to a dead stop at the end."
+                    f"The shot should feel already in progress at the start and should not come to a dead stop at the end. "
+                    f"Avoid powerpoint-style transitions; favor motivated, cinematic motion."
                 ),
                 "transition_goal": (
                     f"Resolve cleanly from {first_name} to {second_name} while preserving enough camera momentum, "
