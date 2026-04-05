@@ -68,6 +68,12 @@ python3 app.py
 
 Then open `http://127.0.0.1:8000`.
 
+To serve the app with Gunicorn instead:
+
+```bash
+./.venv/bin/gunicorn app:app
+```
+
 What the website currently does:
 
 - accepts one or more uploaded images
