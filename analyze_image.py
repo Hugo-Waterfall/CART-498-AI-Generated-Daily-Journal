@@ -7,14 +7,11 @@ import os
 import re
 from datetime import datetime
 from pathlib import Path
+from typing import Sequence
 
 
 DEFAULT_INPUT_DIR = Path("input_images")
 DEFAULT_OUTPUT_FILE = Path("descriptions.txt")
-<<<<<<< Updated upstream
-DEFAULT_IMAGE_MODEL = "gpt-4.1-mini"
-DEFAULT_NARRATIVE_MODEL = "gpt-5.4"
-=======
 DEFAULT_AUDIO_DIR = Path("audio files")
 DEFAULT_IMAGE_MODEL = "gemini-2.0-flash"
 DEFAULT_NARRATIVE_MODEL = "gpt-4.0"
@@ -25,7 +22,6 @@ DEFAULT_TTS_STABILITY = 0.35
 DEFAULT_TTS_SIMILARITY_BOOST = 0.85
 DEFAULT_TTS_STYLE = 0.65
 DEFAULT_TTS_SPEAKER_BOOST = True
->>>>>>> Stashed changes
 
 DEFAULT_PROMPT = (
     "Describe this image in two parts:"
@@ -81,8 +77,6 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_NARRATIVE_PROMPT,
         help="Instruction for generating the final narrative.",
     )
-<<<<<<< Updated upstream
-=======
     parser.add_argument(
         "--tts-model-id",
         default=DEFAULT_TTS_MODEL_ID,
@@ -125,7 +119,6 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_TTS_SPEAKER_BOOST,
         help=f"Enable ElevenLabs speaker boost. Default: {DEFAULT_TTS_SPEAKER_BOOST}",
     )
->>>>>>> Stashed changes
     return parser.parse_args()
 
 
@@ -187,8 +180,6 @@ def collect_image_paths(input_dir: str) -> list[Path]:
     return image_paths
 
 
-<<<<<<< Updated upstream
-=======
 def create_genai_client(use_vertex: bool):
     try:
         from google import genai
@@ -229,7 +220,6 @@ def create_elevenlabs_client():
     return ElevenLabs(api_key=os.environ["ELEVENLABS_API_KEY"])
 
 
->>>>>>> Stashed changes
 def build_data_url(image_path: Path) -> str:
     mime_type, _ = mimetypes.guess_type(image_path.name)
     if mime_type is None or not mime_type.startswith("image/"):
@@ -297,8 +287,6 @@ def generate_narrative(
     return response.output_text.strip()
 
 
-<<<<<<< Updated upstream
-=======
 def build_audio_output_path(audio_dir: str, output_format: str) -> Path:
     directory = Path(audio_dir).expanduser().resolve()
     directory.mkdir(parents=True, exist_ok=True)
@@ -350,7 +338,6 @@ def generate_narration_audio(
     return output_path
 
 
->>>>>>> Stashed changes
 def append_descriptions(
     output_file: str, descriptions: list[tuple[Path, str]], narrative: str
 ) -> Path:
@@ -372,9 +359,6 @@ def append_descriptions(
     with output_path.open("a", encoding="utf-8") as handle:
         handle.write("\n".join(lines))
 
-<<<<<<< Updated upstream
-    return output_path
-=======
 
 def build_voice_settings(
     stability: float,
@@ -486,15 +470,10 @@ def run_analysis_pipeline(
         "output_path": output_path,
         "run_text": run_text,
     }
->>>>>>> Stashed changes
 
 
 def main() -> None:
     args = parse_args()
-<<<<<<< Updated upstream
-    load_local_env()
-    require_api_key()
-=======
     image_paths = collect_image_paths(args.input_dir)
     result = run_analysis_pipeline(
         image_paths=image_paths,
@@ -512,7 +491,6 @@ def main() -> None:
         tts_style=args.tts_style,
         tts_speaker_boost=args.tts_speaker_boost,
     )
->>>>>>> Stashed changes
 
     try:
         from openai import OpenAI
