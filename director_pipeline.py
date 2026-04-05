@@ -26,7 +26,7 @@ DEFAULT_ASPECT_RATIO = "16:9"
 DEFAULT_MAX_SHOTS = 6
 DEFAULT_DURATION_SECONDS = 4
 DEFAULT_TOTAL_DURATION = 20
-DEFAULT_SEQUENCE_MODE = "planned"
+DEFAULT_SEQUENCE_MODE = "adjacent-pairs"
 DEFAULT_CROSSFADE_DURATION = 0.35
 ALLOWED_VEO_DURATIONS = (4, 6, 8)
 DEFAULT_TTS_STABILITY = 0.35
@@ -63,7 +63,8 @@ PROMPT_DIRECTOR_SYSTEM_PROMPT = (
     "Convert a shot list into Veo-ready prompts that emphasize continuity, cinematic movement, realism, and clean editability. "
     "Every prompt should be concrete, visual, and production-usable. "
     "Prioritize the feeling of one uninterrupted camera journey across adjacent shots. "
-    "Each shot should inherit momentum from the previous shot and end in a visual state that can naturally begin the next shot."
+    "Each shot should inherit momentum from the previous shot and end in a visual state that can naturally begin the next shot. "
+    "Allow tasteful creative flourishes and expressive camera language as long as continuity and plausibility hold."
 )
 IMAGE_ANALYSIS_JSON_SHAPE = """{
   "filename": "string",
@@ -497,9 +498,10 @@ def build_prompt_director_prompt(shot_blueprint: dict, scene_plan: dict) -> str:
         "Return only valid JSON with this exact shape:\n"
         f"{PROMPT_PLAN_JSON_SHAPE}\n"
         "Constraints:\n"
+        "- Keep each prompt concise: 2-3 sentences, focused on the essential motion and visual continuity.\n"
         "- Each prompt must describe natural motion, camera behavior, subject continuity, and environmental behavior.\n"
-        "- Each prompt should emphasize motivated, cinematic transitions (whip-pan, match-cut motion, parallax drift, rack-focus reveals).\n"
-        "- Each negative prompt should explicitly block slideshow transitions, abrupt morphs, cross-fades, broken anatomy, text overlays, and freeze-frame behavior.\n"
+        "- Prefer motivated, cinematic transitions (whip-pan, match-cut motion, parallax drift, rack-focus reveals).\n"
+        "- Negative prompts should discourage slideshow transitions, abrupt morphs, cross-fades, broken anatomy, text overlays, and freeze-frame behavior, without over-restricting the creative motion.\n"
         "- Make each shot feel like a continuation of one camera move rather than a reset.\n"
         "- The opening moment of each shot should feel already in motion, not like a fresh start.\n"
         "- The ending frame of each shot should feel compositionally compatible with the next shot's opening energy.\n"
@@ -626,6 +628,23 @@ def build_scene_plan(
     return extract_json(response.output_text)
 
 
+def build_narration_text(
+    openai_client,
+    analyses: list[ImageAnalysis],
+    image_names: list[str],
+    planner_model: str,
+    story_brief: str,
+) -> str:
+    scene_plan = build_scene_plan(
+        openai_client,
+        analyses,
+        image_names,
+        planner_model,
+        story_brief,
+    )
+    return str(scene_plan.get("narration_text", "")).strip()
+
+
 def build_shot_blueprint(
     openai_client,
     scene_plan: dict,
@@ -691,6 +710,53 @@ def build_director_plan(
         "narration_text": scene_plan.get("narration_text", ""),
         "shots": merged_shots,
     }
+
+
+def build_fallback_narration(
+    analyses: list[ImageAnalysis],
+    image_names: list[str],
+    story_brief: str,
+    total_duration: int,
+) -> str:
+    target_words = max(40, min(70, int(total_duration * 2.6)))
+    analysis_by_name = {item.filename: item for item in analyses}
+    sentences: list[str] = []
+
+    if story_brief:
+        sentences.append(story_brief.strip().rstrip(".") + ".")
+
+    for index, name in enumerate(image_names):
+        analysis = analysis_by_name.get(name)
+        mood = analysis.mood if analysis and analysis.mood else "present"
+        location = analysis.location if analysis and analysis.location else "a familiar place"
+        subject = analysis.subjects[0] if analysis and analysis.subjects else "the scene"
+        if index == 0:
+            sentences.append(f"I start in {location}, feeling {mood}, watching {subject}.")
+        elif index == len(image_names) - 1:
+            sentences.append(f"It ends in {location}, softer and {mood} as the day settles.")
+        else:
+            sentences.append(f"It shifts toward {location}, still with {subject}, the mood turning {mood}.")
+
+    sentences.extend(
+        [
+            "I keep the camera moving so each moment flows into the next without a hard stop.",
+            "Small details carry me forward, and the rhythm stays gentle and grounded.",
+            "By the end, everything feels connected, like one continuous walk through the day.",
+        ]
+    )
+
+    chosen: list[str] = []
+    word_count = 0
+    for sentence in sentences:
+        words = sentence.split()
+        if chosen and word_count + len(words) > target_words:
+            break
+        chosen.append(sentence)
+        word_count += len(words)
+
+    if not chosen:
+        return story_brief.strip()
+    return " ".join(chosen)
 
 
 def build_audio_output_path(audio_dir: Path) -> Path:
@@ -978,6 +1044,8 @@ def attach_audio(ffmpeg_path: str, video_path: Path, audio_path: Path, output_pa
             "copy",
             "-c:a",
             "aac",
+            "-af",
+            "apad",
             "-shortest",
             str(output_path),
         ],
@@ -1161,6 +1229,15 @@ def main() -> None:
         if len(image_names) < 2:
             raise SystemExit("`adjacent-pairs` mode requires at least 2 images.")
         scene_plan = build_adjacent_pair_scene_plan(analyses, image_names, args.story_brief)
+        model_narration = build_narration_text(
+            openai_client,
+            analyses,
+            image_names,
+            args.planner_model,
+            args.story_brief,
+        )
+        if model_narration:
+            scene_plan["narration_text"] = model_narration
     else:
         scene_plan = build_scene_plan(
             openai_client,
@@ -1196,6 +1273,13 @@ def main() -> None:
         shot_blueprint,
         args.planner_model,
     )
+    if not str(director_plan.get("narration_text", "")).strip():
+        director_plan["narration_text"] = build_fallback_narration(
+            analyses,
+            image_names,
+            args.story_brief,
+            args.total_duration,
+        )
     plan_path = run_dir / "director_plan.json"
     save_json(plan_path, director_plan)
     shots = build_shot_objects(director_plan)
