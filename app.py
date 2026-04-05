@@ -209,10 +209,22 @@ def index():
                     return None
                 return path.resolve().relative_to(BASE_DIR).as_posix()
 
+            def read_text_file(path: Path | None) -> str | None:
+                if not path or not path.is_file():
+                    return None
+                try:
+                    return path.read_text(encoding="utf-8")
+                except UnicodeDecodeError:
+                    return path.read_text(encoding="utf-8", errors="replace")
+
             analysis_relative = rel_path(director_result["analysis_path"])
             scene_relative = rel_path(director_result["scene_plan_path"])
             blueprint_relative = rel_path(director_result["shot_blueprint_path"])
             plan_relative = rel_path(director_result["director_plan_path"])
+            analysis_text = read_text_file(director_result["analysis_path"])
+            scene_text = read_text_file(director_result["scene_plan_path"])
+            blueprint_text = read_text_file(director_result["shot_blueprint_path"])
+            plan_text = read_text_file(director_result["director_plan_path"])
             narration_text = director_result["narration_text"] or "[No narration returned]"
             context["result"] = {
                 "image_count": len(saved_paths),
@@ -224,9 +236,13 @@ def index():
                 else None,
                 "descriptions_path": plan_relative,
                 "analysis_path": analysis_relative,
+                "analysis_text": analysis_text,
                 "scene_plan_path": scene_relative,
+                "scene_plan_text": scene_text,
                 "shot_blueprint_path": blueprint_relative,
+                "shot_blueprint_text": blueprint_text,
                 "director_plan_path": plan_relative,
+                "director_plan_text": plan_text,
                 "video_url": video_url,
                 "video_path": video_path.resolve().relative_to(BASE_DIR).as_posix() if video_path else None,
             }
