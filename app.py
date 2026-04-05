@@ -99,6 +99,7 @@ def run_director_pipeline(
     input_dir: Path,
     total_duration: int = 20,
     generate_video: bool = False,
+    sequence_mode: str = "adjacent-pairs",
 ) -> dict:
     VIDEO_ROOT.mkdir(parents=True, exist_ok=True)
     cmd = [
@@ -108,6 +109,8 @@ def run_director_pipeline(
         str(input_dir),
         "--total-duration",
         str(total_duration),
+        "--sequence-mode",
+        sequence_mode,
     ]
     if not generate_video:
         cmd.append("--skip-video")
@@ -168,6 +171,7 @@ def index():
         uploaded_files = [file for file in uploaded_files if file and file.filename]
         use_samples = request.form.get("use_samples") == "on"
         generate_video = request.form.get("generate_video") == "on"
+        sequence_mode = request.form.get("sequence_mode", "adjacent-pairs")
 
         if not uploaded_files and not use_samples:
             context["error"] = "Choose one or more images or select the sample set."
@@ -186,6 +190,7 @@ def index():
                 input_dir=input_dir,
                 total_duration=20,
                 generate_video=generate_video,
+                sequence_mode=sequence_mode,
             )
             audio_relative = None
             audio_url = None

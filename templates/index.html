@@ -81,6 +81,13 @@
             Use the 4 sample images from <code>input_images</code>
           </label>
           <label class="toggle">
+            <span>Sequence mode</span>
+            <select name="sequence_mode">
+              <option value="adjacent-pairs" selected>Adjacent pairs (3 clips)</option>
+              <option value="planned">Planned (AI chooses shots)</option>
+            </select>
+          </label>
+          <label class="toggle">
             <input type="checkbox" name="generate_video" checked>
             Generate final video with narration (requires Veo + ffmpeg)
           </label>
