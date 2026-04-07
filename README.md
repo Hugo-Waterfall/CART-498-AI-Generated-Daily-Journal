@@ -47,13 +47,19 @@ OPENAI_API_KEY=your_openai_key
 
 Keys for the director pipeline and video generation:
 ```
-RUNWAYML_API_SECRET=your_runway_key
-GOOGLE_CLOUD_PROJECT=your_project_id
+ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
+ELEVENLABS_MODEL_ID=eleven_multilingual_v2
+ELEVENLABS_VOICE_ID=JBFqnCBsd6RMkjVDRZzb
+ELEVENLABS_VOICE_STABILITY=0.35
+ELEVENLABS_VOICE_SIMILARITY=0.85
+ELEVENLABS_VOICE_STYLE=0.65
+ELEVENLABS_SPEAKER_BOOST=True
+RUNWAYML_API_SECRET=your_runwayml_api_key_here
+GOOGLE_CLOUD_PROJECT=your_google_cloud_project_id
 GOOGLE_CLOUD_LOCATION=global
 GOOGLE_GENAI_USE_VERTEXAI=True
 GOOGLE_CLOUD_VEO_OUTPUT_GCS_URI=gs://your-bucket/veo-output
-GOOGLE_APPLICATION_CREDENTIALS_JSON=<entire JSON service account contents>
-ELEVENLABS_API_KEY=your_elevenlabs_key
+GOOGLE_APPLICATION_CREDENTIALS_JSON= entire JSON content
 ```
 
 4. Load environment variables.
