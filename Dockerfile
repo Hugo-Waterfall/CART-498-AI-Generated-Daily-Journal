@@ -4,7 +4,7 @@ FROM python:3.11-slim
 # Prevent Python from buffering logs
 ENV PYTHONUNBUFFERED=1
 
-# Install system dependencies (ffmpeg + basics)
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     gcc \
@@ -23,14 +23,20 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your app
+# Copy app code
 COPY . .
 
-# Create required directories (important for your app!)
+# Create required directories
 RUN mkdir -p web_uploads generated_videos audio_files
 
-# Expose port (Render uses $PORT but this is good practice)
+# This tells Google SDK where credentials will be
+ENV GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp-key.json
+
+# (Optional but recommended fallback)
+ENV GOOGLE_CLOUD_PROJECT=your-project-id
+
+# Expose port
 EXPOSE 10000
 
-# Start your Flask app via gunicorn
+# Start app
 CMD gunicorn app:app --bind 0.0.0.0:$PORT --timeout 360
