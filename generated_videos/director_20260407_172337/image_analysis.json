@@ -1,0 +1,126 @@
+[
+  {
+    "filename": "Image1.jpeg",
+    "visual_summary": "The image shows a computer lab with multiple rows of desks, each equipped with an iMac computer and peripherals. The room is well-lit with overhead fluorescent lighting, and features a blank white wall with a blackboard and a projector screen at the front. Chairs have the initials 'CDA' written on them, and the room is currently empty.",
+    "location": "Indoor computer lab or classroom",
+    "subjects": [
+      "iMac computers",
+      "office chairs",
+      "blackboard",
+      "projector screen"
+    ],
+    "mood": "quiet and utilitarian",
+    "continuity_anchors": [
+      "arrangement of computers in rows",
+      "blackboard and projector screen on the wall",
+      "lighting from ceiling panels",
+      "CDA markings on chairs"
+    ],
+    "plausible_actions": [
+      "students entering and sitting at computers",
+      "teacher or instructor using the blackboard",
+      "use of the projector screen for presentations",
+      "walking between rows of desks"
+    ],
+    "cinematic_notes": [
+      "use of symmetrical framing to emphasize the rows and repetition",
+      "overhead lighting casting soft, even illumination",
+      "possibility for tracking shots moving through aisles",
+      "contrast between dark screens and light walls for visual focus"
+    ]
+  },
+  {
+    "filename": "Image2.jpeg",
+    "visual_summary": "This image shows a narrow urban street with a construction fence on the left side and several buildings lining the right side. There's a prominent sign for a Korean chicken restaurant named 'Chicken Plus +' along with other smaller business signs visible further down the alley. The sky is overcast, and there are a few pedestrians walking in the distance.",
+    "location": "Narrow city street with restaurants and construction barriers",
+    "subjects": [
+      "construction fence",
+      "restaurant signs",
+      "pedestrians",
+      "buildings"
+    ],
+    "mood": "urban and slightly dreary",
+    "continuity_anchors": [
+      "Chicken Plus + restaurant sign",
+      "construction fencing with red and white barriers",
+      "brick and stone building facades",
+      "pedestrians in dark clothing"
+    ],
+    "plausible_actions": [
+      "people walking down the alley",
+      "restaurant staff attending to customers",
+      "construction workers setting up or inspecting barriers",
+      "delivery or maintenance activities"
+    ],
+    "cinematic_notes": [
+      "use the fencing for leading lines to draw focus into the depth of the alley",
+      "overcast sky provides diffuse lighting, good for muted and even tones",
+      "capture contrasting materials like metal fencing and stone buildings for texture",
+      "potential for tracking shots following pedestrian movement"
+    ]
+  },
+  {
+    "filename": "Image3.jpeg",
+    "visual_summary": "The image captures a busy urban street scene on an overcast day with multiple parked and moving cars along the road. Several leafless trees line the sidewalk where pedestrians walk near various storefronts, including 'La Soupiere' and a sushi restaurant. Bright orange parking and detour signs are prominently placed along the curb and sidewalk.",
+    "location": "Urban city street with commercial storefronts",
+    "subjects": [
+      "parked cars",
+      "moving traffic",
+      "pedestrians",
+      "storefronts",
+      "street signs",
+      "leafless trees"
+    ],
+    "mood": "busy, overcast, urban",
+    "continuity_anchors": [
+      "orange parking and detour signs",
+      "leafless trees along the sidewalk",
+      "storefronts including La Soupiere and Meet Sushi",
+      "row of parked cars",
+      "bus in the background"
+    ],
+    "plausible_actions": [
+      "pedestrians walking along the sidewalk",
+      "cars parking or pulling out of parking spots",
+      "drivers navigating the detour signage",
+      "people entering or exiting storefronts"
+    ],
+    "cinematic_notes": [
+      "use shallow depth of field to emphasize pedestrians against blurred moving traffic",
+      "capture reflections in car windows for dynamic texture",
+      "use overcast diffused lighting for soft, even illumination",
+      "frame street signs and shop signage as continuity markers in multiple shots"
+    ]
+  },
+  {
+    "filename": "Image4.jpeg",
+    "visual_summary": "A blue STM metro train is stationary at an underground platform, with passengers either sitting or standing inside. The metro car has a white stripe running horizontally and shows signs of wear and dirt near the wheels. People inside the train are dressed in winter clothes, indicating cold weather outside.",
+    "location": "Underground metro station, STM network",
+    "subjects": [
+      "blue metro train",
+      "passengers in winter clothing",
+      "platform with yellow safety edge"
+    ],
+    "mood": "calm and routine urban atmosphere",
+    "continuity_anchors": [
+      "blue metro car with white stripe",
+      "STM logo and 'MOUVEMENT COLLECTIF' text",
+      "passengers wearing coats and backpacks",
+      "yellow tactile platform edge",
+      "train wheels and dirty lower panels"
+    ],
+    "plausible_actions": [
+      "passengers boarding or disembarking",
+      "train doors opening and closing",
+      "people waiting on platform",
+      "train starting to depart"
+    ],
+    "cinematic_notes": [
+      "Use side profile shots of the train for symmetrical framing",
+      "Incorporate reflections on train windows to add depth",
+      "Use close-ups of passengers to capture their mood",
+      "Play with the contrast between the yellow platform and blue train for visual impact",
+      "Leverage overhead lighting for even illumination and shadow play"
+    ]
+  }
+]
