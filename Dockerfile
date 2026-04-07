@@ -39,4 +39,4 @@ ENV GOOGLE_CLOUD_PROJECT=your-project-id
 EXPOSE 10000
 
 # Start app
-CMD gunicorn app:app --bind 0.0.0.0:$PORT --timeout 600 --workers 1 --threads 1
+CMD gunicorn app:app --bind 0.0.0.0:$PORT --timeout 600 --workers 2 --threads 2
