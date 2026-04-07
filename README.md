@@ -1,153 +1,124 @@
 # CART-498-AI-Generated-Daily-Journal
 
-<<<<<<< Updated upstream
-Small Python utility for analyzing all images in `input_images`, generating a short narrative from the resulting descriptions, and appending both the descriptions and the narrative to `descriptions.txt`.
-=======
-Small Python utilities for:
+Small Python project for generating daily-journal style narratives from images, plus a Flask web app that runs the same pipeline and serves results. There is also a director pipeline that plans shots and generates video clips.
 
-- analyzing a single image with the OpenAI Responses API
-- turning a folder of images into Runway Gen-4 Turbo video transitions
->>>>>>> Stashed changes
+## What This Repo Contains
 
-## Setup
+- `app.py`: Flask web app for uploading images and running the pipeline.
+- `director_pipeline.py`: CLI pipeline that analyzes images, plans shots, and generates videos.
+- `make_final_video.ps1`: PowerShell helper to stitch clips and optional audio with `ffmpeg`.
 
-1. Create a virtual environment:
+## Requirements
 
+- Python 3.11+
+- `ffmpeg` on your PATH (needed for stitching clips and audio)
+- API keys in `.env` (see below)
+
+## Local Setup
+
+1. Create and activate a virtual environment.
+
+Windows PowerShell:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+macOS/Linux:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
 2. Install dependencies:
-
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Add your API key without hardcoding it into the script:
-
+3. Create `.env` and fill in your real keys:
 ```bash
 cp .env.example .env
 ```
 
-Then edit `.env` and add your real keys:
-
-```bash
-OPENAI_API_KEY=your_real_key_here
-RUNWAYML_API_SECRET=your_real_runway_key_here
+Minimum keys for the web app:
+```
+OPENAI_API_KEY=your_openai_key
 ```
 
-Load it into your shell:
+Keys for the director pipeline and video generation:
+```
+RUNWAYML_API_SECRET=your_runway_key
+GOOGLE_CLOUD_PROJECT=your_project_id
+GOOGLE_CLOUD_LOCATION=global
+GOOGLE_GENAI_USE_VERTEXAI=True
+GOOGLE_CLOUD_VEO_OUTPUT_GCS_URI=gs://your-bucket/veo-output
+GOOGLE_APPLICATION_CREDENTIALS_JSON=<entire JSON service account contents>
+ELEVENLABS_API_KEY=your_elevenlabs_key
+```
 
+4. Load environment variables.
+
+Windows PowerShell:
+```powershell
+Get-Content .env | ForEach-Object {
+  if ($_ -match '^\s*#' -or $_ -match '^\s*$') { return }
+  $k, $v = $_ -split '=', 2
+  $env:$k = $v
+}
+```
+
+macOS/Linux:
 ```bash
 set -a
 source .env
 set +a
 ```
 
-`.env` is ignored by Git, so it will not be committed to GitHub unless you remove that rule.
+## Run Locally
 
-## Run
-
-<<<<<<< Updated upstream
-Analyze every supported image in `input_images`, generate a narrative from the eight descriptions, and append the results to `descriptions.txt`:
-=======
-Analyze images with OpenAI:
-
-Analyze a public image URL:
->>>>>>> Stashed changes
-
+### Web App
 ```bash
-python3 analyze_image.py
+python app.py
 ```
 
-Use a custom prompt:
+The app binds to `http://127.0.0.1:8000` by default. You can override with `PORT`.
 
+### Director Pipeline (CLI)
 ```bash
-python3 analyze_image.py \
-  --prompt "Describe this image like a journal entry prompt, including mood, setting, and notable details."
+python director_pipeline.py --input-dir "input_images"
 ```
 
-<<<<<<< Updated upstream
-Use a different folder or output file:
+Outputs are written to `generated_videos/` with timestamped run folders.
 
-```bash
-python3 analyze_image.py \
-  --input-dir "input_images" \
-  --output-file "descriptions.txt"
+### Stitch Clips and Audio (PowerShell)
+```powershell
+.\make_final_video.ps1 -RunDir "generated_videos\director_YYYYMMDD_HHMMSS"
 ```
 
-Override the image-analysis model or the narrative model:
+## Deploy on Render
 
-```bash
-python3 analyze_image.py \
-  --image-model "gpt-4.1-mini" \
-<<<<<<< Updated upstream
-  --narrative-model "gpt-5.4"
-=======
-Generate video clips from a folder of local images:
-=======
-  --narrative-model "gpt-5.4" \
-  --tts-voice-id "JBFqnCBsd6RMkjVDRZzb" \
-  --tts-model-id "eleven_multilingual_v2" \
-  --tts-stability 0.35 \
-  --tts-similarity-boost 0.85 \
-  --tts-style 0.65 \
-  --tts-speaker-boost
+This repo includes a `Dockerfile` that Render can use directly.
+
+1. Create a new Render Web Service.
+2. Connect the GitHub repo and choose **Docker**.
+3. Set environment variables in the Render dashboard (same keys as `.env`).
+4. Deploy.
+
+Render will set `PORT` automatically. The Docker image starts with:
 ```
-
-## Generate Video
-
-Generate Runway clips from a folder of local images:
->>>>>>> Stashed changes
-
-```bash
-python3 imagetovideo.py --input-dir "/path/to/images"
-```
-
-Generate one stitched 5-second final video for every 4 images:
-
-```bash
-python3 imagetovideo.py \
-  --input-dir "/path/to/images" \
-  --group-size 4 \
-  --total-duration 5 \
-  --stitch
->>>>>>> Stashed changes
+gunicorn app:app --bind 0.0.0.0:$PORT --timeout 600 --workers 2 --threads 2
 ```
 
 ## Notes
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-- The default image-description model is `gpt-4.1-mini`.
-- The default narrative model is `gpt-5.4`.
-- The script skips hidden files like `.DS_Store`.
-- The script appends each run to `descriptions.txt`, so previous descriptions and narratives are preserved.
-=======
-- The default model is `gpt-4.1-mini`, but you can override it with `--model`.
-- The script accepts exactly one image at a time.
-- `imagetovideo.py` uses Runway `gen4_turbo`.
-- The default prompt treats each 4-image group as reference moments from one day.
-- Runway does not currently support 4 images in a single `image_to_video` generation. This script handles 4 images by generating adjacent transition clips and splitting the total requested duration across them, then optionally merging them with `ffmpeg`.
->>>>>>> Stashed changes
-- Never commit your real API key, `.env`, or any file containing secrets.
+- Uploaded web images are stored in `web_uploads/`.
+- Generated audio is stored in `audio files/`.
+- `descriptions.txt` is append-only and keeps a log of each run.
+- Never commit real API keys or `.env`.
 
+## Notes (Free-Tier Limits)
 
-Terminal command (replace the url with any image url you want)
-python3 analyze_image.py --image-url "https://static.wikia.nocookie.net/obamium/images/c/cd/Screenshot_20.jpg/revision/latest?cb=20210915024847"
-=======
-- `analyze_image.py` uses `gpt-4.1-mini` for image descriptions and `gpt-5.4` for the final narrative by default.
-- `app.py` reuses the same analysis pipeline as `analyze_image.py`, so the CLI and website produce the same saved output format.
-- Generated narration audio is saved to `audio files/`.
-- `descriptions.txt` keeps an append-only log of each run, including the generated narrative and saved audio path.
-- Uploaded website images are stored temporarily in `web_uploads/`.
-- `imagetovideo.py` uses Runway `gen4_turbo` by default.
-- If `imagetovideo.py` is run without `--prompt`, it uses the latest `Narrative:` block from `descriptions.txt`.
-- `director_pipeline.py` uses OpenAI to create image analyses and a shot plan, then calls Veo through Vertex AI using `google-genai`.
-- `director_pipeline.py` targets a 20 second total duration by default, matching the narration length guidance.
-- ElevenLabs voice settings can be supplied via CLI (`analyze_image.py`) or environment variables (`director_pipeline.py`).
-- Veo outputs are written to the Cloud Storage prefix configured by `GOOGLE_CLOUD_VEO_OUTPUT_GCS_URI`, then downloaded back into the local run folder.
-- `elevenlabs` is optional for `director_pipeline.py` when you run with `--skip-audio`.
-- Never commit your real API keys, `.env`, or any file containing secrets.
->>>>>>> Stashed changes
+- It’s possible to exceed free-tier limits. On Render, you may encounter errors like:There are possible to run exceeds the plan limits, Render may show: `Instance failed ... Ran out of memory (used over 512MB) while running your code.` In that case, it require an upgrade the Render instance size/plan.
+- The ElevenLabs free tier can flag requests from shared cloud infrastructure (including Render) as “unusual activity.”
+- If that happens, either use `--skip-audio`, switch to a paid plan.
+

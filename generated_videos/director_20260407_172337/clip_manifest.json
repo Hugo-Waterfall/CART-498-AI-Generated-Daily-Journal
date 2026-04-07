@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "Image1 into Image2",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260407_172337\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260407_172337/generated/shot_01/7537670695216385600/sample_0.mp4",
+    "prompt": "Already drifting forward through a quiet computer lab, the camera glides past rows of monitors under flat ceiling-panel light, with the blackboard and projector screen holding frame as the move continues toward a doorway or window reflection that motivates the transition outside. Keep the same lateral momentum as the interior geometry gives way to a dreary street with brick and stone facades, construction fencing with red-and-white barriers, and the Chicken Plus + sign settling into clear view, ending fully on the sidewalk while still gently moving forward."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "Image2 into Image3",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260407_172337\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260407_172337/generated/shot_02/10274335127748472510/sample_0.mp4",
+    "prompt": "Begin already in motion on the overcast sidewalk outside Chicken Plus +, the camera continuing its forward drift past construction fencing and red-and-white barriers while brick storefronts slide by in parallax. Let orange parking and detour signs, leafless trees, and neighboring storefronts including La Soupiere and Meet Sushi emerge through a natural pan and slight walk-induced sway, resolving into the busier street view of Image3 while preserving the same street-level heading."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "Image3 into Image4",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260407_172337\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260407_172337/generated/shot_03/2451541949655868781/sample_0.mp4",
+    "prompt": "Carry the same street momentum through the busy overcast block, with orange signs, bare trees, and storefronts like La Soupiere and Meet Sushi sliding past as the camera subtly pans to catch movement arriving from the side. Use that motivated pan to reveal a blue metro car with a white stripe, STM logo, and MOUVEMENT COLLECTIF text, passengers in coats and backpacks visible through the windows, ending calmly alongside the train with a steady observational drift that feels ready to continue."
+  }
+]
