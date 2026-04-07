@@ -27,7 +27,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create required directories
-RUN mkdir -p web_uploads generated_videos audio_files
+RUN mkdir -p web_uploads generated_videos "audio files"
 
 # This tells Google SDK where credentials will be
 ENV GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp-key.json
