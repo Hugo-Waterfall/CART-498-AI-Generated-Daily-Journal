@@ -1,0 +1,43 @@
+{
+  "shots": [
+    {
+      "shot_id": "shot_01",
+      "title": "Image1 into Image2",
+      "scene_id": "scene_01",
+      "source_image": "Image2.jpeg",
+      "first_frame_image": "Image1.jpeg",
+      "last_frame_image": "Image2.jpeg",
+      "duration_seconds": 4,
+      "camera": "Continuous first-person or observational camera movement that begins in Image1.jpeg and naturally settles into Image2.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of Image1.jpeg into the environment of Image2.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from Image1.jpeg to Image2.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from calm and orderly into gray, overcast, and slightly constrained without breaking continuity."
+    },
+    {
+      "shot_id": "shot_02",
+      "title": "Image2 into Image3",
+      "scene_id": "scene_02",
+      "source_image": "Image3.jpeg",
+      "first_frame_image": "Image2.jpeg",
+      "last_frame_image": "Image3.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in Image2.jpeg and naturally settles into Image3.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of Image2.jpeg into the environment of Image3.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from Image2.jpeg to Image3.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from gray, overcast, and slightly constrained into overcast, neutral, everyday urban life without breaking continuity."
+    },
+    {
+      "shot_id": "shot_03",
+      "title": "Image3 into Image4",
+      "scene_id": "scene_03",
+      "source_image": "Image4.jpeg",
+      "first_frame_image": "Image3.jpeg",
+      "last_frame_image": "Image4.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in Image3.jpeg and naturally settles into Image4.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of Image3.jpeg into the environment of Image4.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from Image3.jpeg to Image4.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from overcast, neutral, everyday urban life into daily urban commute without breaking continuity."
+    }
+  ]
+}

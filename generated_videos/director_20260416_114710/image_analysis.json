@@ -1,0 +1,123 @@
+[
+  {
+    "filename": "01_Image1.jpeg",
+    "visual_summary": "The image depicts an indoor public market with stalls selling fresh produce like apples and other fruits. People are casually walking, shopping, and interacting in a spacious, well-lit area beneath a high ceiling with industrial-style beams and ceiling fans. A large sign reading 'March\u00e9 Jean-Talon' is prominently displayed above the entrance to the market aisle.",
+    "location": "Indoor public market, March\u00e9 Jean-Talon",
+    "subjects": [
+      "shoppers",
+      "vendors",
+      "fruit stalls",
+      "signage"
+    ],
+    "mood": "lively and casual",
+    "continuity_anchors": [
+      "March\u00e9 Jean-Talon sign",
+      "fruit and vegetable displays",
+      "industrial ceiling with fans",
+      "people in winter coats"
+    ],
+    "plausible_actions": [
+      "shoppers browsing and purchasing produce",
+      "vendors restocking displays",
+      "people eating or drinking at stalls",
+      "casual conversations among visitors"
+    ],
+    "cinematic_notes": [
+      "wide shots to capture market bustle and scale",
+      "close-ups on colorful fruits and hands picking items",
+      "natural lighting enhanced by overhead fixtures",
+      "depth shots down the market aisles for dynamic perspective"
+    ]
+  },
+  {
+    "filename": "02_Image2.jpeg",
+    "visual_summary": "The image shows a narrow urban street or alleyway bordered by older brick buildings on the left and a mix of brick and stone buildings on the right. A metal construction fence runs along the left side, indicating ongoing road or building work; in the distance, a couple of people walk down the sidewalk. Prominent signage for a restaurant called 'Chicken Plus' with English, Korean, and French text is visible on the right side.",
+    "location": "Urban street with construction, featuring mixed architecture and small businesses",
+    "subjects": [
+      "metal construction fence",
+      "restaurant signage",
+      "pedestrians",
+      "old brick buildings",
+      "construction barriers"
+    ],
+    "mood": "overcast, slightly industrial, everyday urban",
+    "continuity_anchors": [
+      "Chicken Plus restaurant sign with distinct yellow, black, and red colors",
+      "metal construction fence and red barriers",
+      "old brick buildings with windows and fire escapes"
+    ],
+    "plausible_actions": [
+      "pedestrians walking down the alley",
+      "workers performing construction or maintenance behind the fence",
+      "someone entering or exiting the Chicken Plus restaurant",
+      "delivery or service activity near the businesses"
+    ],
+    "cinematic_notes": [
+      "use shallow depth of field to highlight signage or pedestrians against the blurred construction fence",
+      "capture atmospheric light from overcast sky for soft, diffused lighting",
+      "track focus moving down the alley to reveal the couple walking or details of the construction",
+      "leverage vertical lines of fire escapes and building edges for dramatic framing"
+    ]
+  },
+  {
+    "filename": "03_Image3.jpeg",
+    "visual_summary": "A blue and white STM metro train is stationary at an underground platform. Several passengers are visible inside the train, some standing and others seated, with one person in a bright red jacket standing out among the darker clothing. The platform has a distinctive yellow textured safety strip along its edge.",
+    "location": "Underground metro station platform",
+    "subjects": [
+      "metro train",
+      "passengers",
+      "platform"
+    ],
+    "mood": "routine urban transit environment",
+    "continuity_anchors": [
+      "blue and white STM train with visible logo",
+      "red jacket worn by one passenger inside",
+      "yellow textured platform edge",
+      "digital display above train showing time and train info"
+    ],
+    "plausible_actions": [
+      "passengers boarding or exiting the train",
+      "train doors closing and train departing",
+      "passengers standing or sitting waiting for next stops"
+    ],
+    "cinematic_notes": [
+      "use window reflections for layered shots capturing both inside and outside perspectives",
+      "highlight contrast of red jacket for visual focus",
+      "low-angle shots including the yellow platform edge for color contrast and framing",
+      "capture overhead digital display to ground time and location"
+    ]
+  },
+  {
+    "filename": "04_Image4.jpeg",
+    "visual_summary": "The image shows two backlit fashion posters side by side in an indoor station area next to a stairway. The left poster features a male model in light-colored casual attire under the title 'TRISTAN' and the right poster shows a female model dressed in modern style with the text 'LE POUVOIR DU STYLE.' The setting includes tiled flooring with a geometric pattern, beige stone walls, and a set of stairs with a metal handrail.",
+    "location": "Indoor subway or metro station at McGill",
+    "subjects": [
+      "male model poster",
+      "female model poster",
+      "stairs",
+      "tiled floor",
+      "handrail",
+      "station wall"
+    ],
+    "mood": "calm and commercial",
+    "continuity_anchors": [
+      "two illuminated posters with distinct models and text",
+      "McGill sign above posters",
+      "beige stone wall texture",
+      "geometric pattern tile floor",
+      "metal handrail on stairs"
+    ],
+    "plausible_actions": [
+      "people walking up or down the stairs",
+      "commuters pausing briefly to look at posters",
+      "cleaning or maintenance staff working on walls or floors",
+      "lighting changes due to time of day or station usage"
+    ],
+    "cinematic_notes": [
+      "use the illuminated posters as key light sources for a moody commercial look",
+      "capture low angle shots from stair base to emphasize height",
+      "employ tracking shots following characters ascending stairs",
+      "contrast warm wall tones with cool poster lights for visual depth"
+    ]
+  }
+]

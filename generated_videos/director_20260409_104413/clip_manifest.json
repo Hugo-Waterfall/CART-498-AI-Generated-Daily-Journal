@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "Image1 into Image2",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_104413\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_104413/generated/shot_01/17930722472092809770/sample_0.mp4",
+    "prompt": "Already drifting forward through a quiet computer lab, pass black desks, CDA-marked chairs, and cold desktop monitors in a single observational move; continue toward the exit as reflections and dark frames align, then let the doorway and window glare motivate a smooth reveal into an overcast street with a black metal fence with red panels. Hold the same forward momentum outside, landing on the CHICKEN PLUS sign and two pedestrians walking past the fence, with damp gray light and light street movement carrying the shot onward instead of stopping."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "Image2 into Image3",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_104413\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_104413/generated/shot_02/10896145245091846065/sample_0.mp4",
+    "prompt": "Begin mid-glide beside the black metal fence with red panels under flat gray sky, keeping the CHICKEN PLUS sign and two pedestrians in motion as the camera tracks with them, then eases into a wider sidewalk view through parallax from fence to street. Bare trees, orange no-parking signs, and a brick building with an ALTA sign gradually take over the frame, resolving into a neutral everyday urban block while the pedestrians and ambient traffic continue naturally to preserve forward energy."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "Image3 into Image4",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_104413\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_104413/generated/shot_03/14559735279970240232/sample_0.mp4",
+    "prompt": "Start already moving along the overcast street, with bare trees, orange no-parking signs, and the brick building marked ALTA sliding past in lateral parallax as the camera advances toward transit activity. Use a motivated rack focus and continued forward drift to bring a blue train with a white stripe into dominance, then settle inside the carriage world with STM logo and slogan visible and passengers seated and standing, ending in a lived-in commuter rhythm that still feels in motion."
+  }
+]

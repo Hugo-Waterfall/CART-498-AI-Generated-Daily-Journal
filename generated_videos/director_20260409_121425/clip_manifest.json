@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM into 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_121425\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_121425/generated/shot_01/15936622603941933438/sample_0.mp4",
+    "prompt": "Already drifting past wooden baskets of fruit beneath the industrial market ceiling, the camera glides under the large March\u00e9 Jean-Talon sign as shoppers and hanging lights create layered parallax, then follows a motivated sideways move toward an exit where the bright produce colors give way to grey outdoor light. Continue the same motion onto the street so brick facades, the Chicken Plus sign, and metal construction fencing with red mesh slide into place, ending still gently moving forward in the overcast urban block."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "02_WhatsApp_Image_2026-04-04_at_1.33.28_PM into 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_121425\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_121425/generated/shot_02/14217359352291126843/sample_0.mp4",
+    "prompt": "Begin already in motion on the overcast sidewalk, tracking past brick windows, the Chicken Plus sign, and red-mesh construction fencing as if continuing the same walk, then use the fencing and passing facade as a motivated wipe into the metro platform. The movement resolves alongside a worn blue subway train with a digital display above and the yellow tactile edge stretching forward, while the camera keeps a subtle lateral drift so the platform energy can carry into the next shot."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "03_WhatsApp_Image_2026-04-04_at_1.33.14_PM into 04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_121425\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_121425/generated/shot_03/9299093094802636734/sample_0.mp4",
+    "prompt": "Already gliding beside the blue subway train, the camera tracks forward along the yellow tactile strip as carriage reflections and the digital display pass overhead, then tilts and rises with a commuter-like motion toward the station interior. Let the train-side movement naturally hand off into the clean McGill corridor, where the black McGill sign with green circle, two backlit fashion ads, and concrete tiled walls with stairs come into full view, ending with a slight upward-forward drift rather than a stop."
+  }
+]

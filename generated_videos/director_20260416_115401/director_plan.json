@@ -1,0 +1,58 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I moved through the city slowly today, letting small familiar places hold me for a moment,\nfirst the market's warmth, then the gray street, then the hum beneath it all.\nBy the time I reached the platform, everything felt quieter,\nas if the day had been carrying me home all along.",
+  "shots": [
+    {
+      "shot_id": "shot_01",
+      "title": "01_Image1 into 02_Image2",
+      "scene_id": "scene_01",
+      "source_image": "02_Image2.jpeg",
+      "first_frame_image": "01_Image1.jpeg",
+      "last_frame_image": "02_Image2.jpeg",
+      "duration_seconds": 4,
+      "camera": "Continuous first-person or observational camera movement that begins in 01_Image1.jpeg and naturally settles into 02_Image2.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 01_Image1.jpeg into the environment of 02_Image2.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 01_Image1.jpeg to 02_Image2.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from bustling everyday market atmosphere into overcast, quiet urban street without breaking continuity.",
+      "prompt": "Already drifting forward beneath the industrial market ceiling, the camera passes fruit and vegetable displays and the MARCH\u00c9 JEAN-TALON sign, then follows a motivated rightward glance past metal structure and brick textures into a gray exterior street where the CHICKEN PLUS + sign and construction fencing emerge naturally. Keep it grounded and realistic with handheld first-person inertia, soft parallax through doorways and posts, market warmth falling into overcast quiet while ending still gently moving along the sidewalk in the established street view.",
+      "negative_prompt": "no slideshow transition, no abrupt cut, no cross-fade, no magical morphing architecture, no frozen frames, no text overlays, no broken anatomy, no duplicated people, no impossible camera teleportation, no stop-start reset motion"
+    },
+    {
+      "shot_id": "shot_02",
+      "title": "02_Image2 into 03_Image3",
+      "scene_id": "scene_02",
+      "source_image": "03_Image3.jpeg",
+      "first_frame_image": "02_Image2.jpeg",
+      "last_frame_image": "03_Image3.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 02_Image2.jpeg and naturally settles into 03_Image3.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 02_Image2.jpeg into the environment of 03_Image3.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 02_Image2.jpeg to 03_Image3.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from overcast, quiet urban street into everyday urban commute without breaking continuity.",
+      "prompt": "Begin already in lateral motion on the overcast street, tracking past the CHICKEN PLUS + storefront, metal construction fencing, and worn brick-stone facades, then let the camera continue that same directional glide into the metro environment where blue train bodywork with a white stripe fills frame. Use a plausible match on color and edge lines so the STM logo, Mouvement Collectif text, and yellow tactile platform edge resolve cleanly, ending with the train and platform fully established while the camera still carries subtle commuting momentum.",
+      "negative_prompt": "no slideshow logic, no abrupt morphs, no hard scene reset, no cross-dissolves, no jumpy teleporting from street to platform, no frozen people, no broken train geometry, no extra signage text overlays, no unnatural speed ramps, no dead-stop ending"
+    },
+    {
+      "shot_id": "shot_03",
+      "title": "03_Image3 into 04_Image4",
+      "scene_id": "scene_03",
+      "source_image": "04_Image4.jpeg",
+      "first_frame_image": "03_Image3.jpeg",
+      "last_frame_image": "04_Image4.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 03_Image3.jpeg and naturally settles into 04_Image4.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 03_Image3.jpeg into the environment of 04_Image4.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 03_Image3.jpeg to 04_Image4.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from everyday urban commute into quiet, modern urban environment without breaking continuity.",
+      "prompt": "Already moving beside the blue STM train, the camera glides along the yellow tactile edge as the white stripe and Mouvement Collectif marking streak past, then a motivated pan and parallax reveal carries the motion deeper into the station concourse. Let the modern interior settle into illuminated fashion ads, the McGILL sign above them, and patterned tiled flooring, with realistic transit ambience and a calm forward drift that finishes composed but not static, ready to continue onward.",
+      "negative_prompt": "no powerpoint-style transition, no abrupt cut, no cross-fade, no impossible train-to-concourse morph, no frozen frame, no anatomy errors, no duplicated commuters, no floating ads or warped text, no camera reset, no unnaturally empty sterile space"
+    }
+  ]
+}

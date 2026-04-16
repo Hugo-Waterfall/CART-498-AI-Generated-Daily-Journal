@@ -1,0 +1,116 @@
+[
+  {
+    "filename": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM.jpeg",
+    "visual_summary": "The image shows a bustling indoor market with various fruit and vegetable stalls prominently displayed. Shoppers of different ages are casually browsing, eating, or interacting, under a high ceiling with industrial lighting and fans. A large sign reading 'MARCH\u00c9 JEAN-TALON' is visible above, with colorful produce images beneath it.",
+    "location": "Indoor public market, March\u00e9 Jean-Talon",
+    "subjects": [
+      "shoppers",
+      "market stalls",
+      "fruit and vegetable displays",
+      "ceiling fans and lights"
+    ],
+    "mood": "busy and casual",
+    "continuity_anchors": [
+      "array of fruits in wooden baskets",
+      "large March\u00e9 Jean-Talon sign with produce images",
+      "industrial ceiling with fans and lights",
+      "variety of shoppers in winter clothing"
+    ],
+    "plausible_actions": [
+      "shoppers examining and purchasing produce",
+      "people eating snacks or drinking",
+      "vendors restocking displays or arranging products",
+      "casual conversations among visitors"
+    ],
+    "cinematic_notes": [
+      "use wide-angle shots to capture market scale and activity",
+      "natural daylight from windows combined with overhead lights for even illumination",
+      "close-ups on colorful produce for vibrant detail",
+      "shot selections that include ceiling fans to emphasize spaciousness"
+    ]
+  },
+  {
+    "filename": "02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg",
+    "visual_summary": "The image shows a narrow street or alleyway lined with brick buildings and a construction barrier on the left side. Various restaurant signs, including 'Chicken Plus' in bright colors and 'Uncle Tetsu's', are visible along the right side of the street. The weather appears overcast, and a few pedestrians are seen walking in the distance.",
+    "location": "Urban city alley or narrow street with restaurants",
+    "subjects": [
+      "construction barrier",
+      "restaurant signs",
+      "pedestrians"
+    ],
+    "mood": "overcast and urban casual",
+    "continuity_anchors": [
+      "Brick building facades with windows",
+      "Chicken Plus restaurant sign",
+      "metal construction fencing with red mesh",
+      "narrow street with visible signage"
+    ],
+    "plausible_actions": [
+      "pedestrians walking or entering restaurants",
+      "construction workers adjusting barriers",
+      "delivery or service activity at restaurants"
+    ],
+    "cinematic_notes": [
+      "Use low-angle shots focusing on restaurant signage to build character",
+      "capture pedestrian movements to enhance urban atmosphere",
+      "utilize the overcast light for soft, diffused lighting on faces and surfaces"
+    ]
+  },
+  {
+    "filename": "03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg",
+    "visual_summary": "The image shows a side view of a blue and white subway train with visible passengers seated and standing inside. The platform in front is yellow-tiled with a warning strip near the train tracks, and the station appears clean but functional with overhead lighting and a digital display sign.",
+    "location": "Indoor subway station platform",
+    "subjects": [
+      "blue subway train",
+      "commuters inside train",
+      "yellow subway platform"
+    ],
+    "mood": "everyday urban transit",
+    "continuity_anchors": [
+      "blue subway train color and wear",
+      "digital display sign above train",
+      "yellow tactile platform edge",
+      "seated and standing passengers visible through windows"
+    ],
+    "plausible_actions": [
+      "train arriving or departing from platform",
+      "commuters boarding or disembarking",
+      "passengers sitting or standing inside train",
+      "routine door opening and closing"
+    ],
+    "cinematic_notes": [
+      "consider side tracking shots following train movement",
+      "use natural station lighting for realism",
+      "capture interior passenger scenes through windows for storytelling",
+      "contrast platform yellow with train blue for vibrant color palette"
+    ]
+  },
+  {
+    "filename": "04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5.jpeg",
+    "visual_summary": "The image shows a tiled interior stairway area with two backlit advertising panels on the left. The ads feature fashion models promoting the 'TRISTAN' brand and 'Le Pouvoir Du Style'. The location sign above the ads reads 'McGILL', indicating a subway or metro station environment.",
+    "location": "McGill subway station, indoors, near stairs",
+    "subjects": [
+      "advertising panels",
+      "McGill station sign",
+      "stairs",
+      "tiled floor"
+    ],
+    "mood": "urban, clean, modern",
+    "continuity_anchors": [
+      "McGill sign in black with green circle",
+      "two backlit fashion ads with distinct poses",
+      "concrete/tiled walls and stairway",
+      "patterned floor tiles"
+    ],
+    "plausible_actions": [
+      "commuters walking up or down stairs",
+      "people pausing to look at ads",
+      "maintenance workers cleaning or changing ads"
+    ],
+    "cinematic_notes": [
+      "use backlit ads as dynamic sources of light in low-light setting",
+      "capture contrast between cold wall textures and vibrant ad colors",
+      "consider low-angle shots emphasizing height of stairs and station depth"
+    ]
+  }
+]

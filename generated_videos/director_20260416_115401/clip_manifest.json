@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "01_Image1 into 02_Image2",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_115401\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_115401/generated/shot_01/5073182614213775054/sample_0.mp4",
+    "prompt": "Already drifting forward beneath the industrial market ceiling, the camera passes fruit and vegetable displays and the MARCH\u00c9 JEAN-TALON sign, then follows a motivated rightward glance past metal structure and brick textures into a gray exterior street where the CHICKEN PLUS + sign and construction fencing emerge naturally. Keep it grounded and realistic with handheld first-person inertia, soft parallax through doorways and posts, market warmth falling into overcast quiet while ending still gently moving along the sidewalk in the established street view."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "02_Image2 into 03_Image3",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_115401\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_115401/generated/shot_02/15216996719885941173/sample_0.mp4",
+    "prompt": "Begin already in lateral motion on the overcast street, tracking past the CHICKEN PLUS + storefront, metal construction fencing, and worn brick-stone facades, then let the camera continue that same directional glide into the metro environment where blue train bodywork with a white stripe fills frame. Use a plausible match on color and edge lines so the STM logo, Mouvement Collectif text, and yellow tactile platform edge resolve cleanly, ending with the train and platform fully established while the camera still carries subtle commuting momentum."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "03_Image3 into 04_Image4",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_115401\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_115401/generated/shot_03/1949266973556462278/sample_0.mp4",
+    "prompt": "Already moving beside the blue STM train, the camera glides along the yellow tactile edge as the white stripe and Mouvement Collectif marking streak past, then a motivated pan and parallax reveal carries the motion deeper into the station concourse. Let the modern interior settle into illuminated fashion ads, the McGILL sign above them, and patterned tiled flooring, with realistic transit ambience and a calm forward drift that finishes composed but not static, ready to continue onward."
+  }
+]

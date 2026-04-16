@@ -1,0 +1,118 @@
+[
+  {
+    "filename": "01_Image1.jpeg",
+    "visual_summary": "The image shows a bustling indoor market with various fresh fruits and vegetables stacked on tables and baskets. Several people are walking, talking, or shopping under a large sign reading 'March\u00e9 Jean-Talon'. The market has high ceilings and industrial-style lighting with natural light coming through large windows.",
+    "location": "Indoor public market, March\u00e9 Jean-Talon",
+    "subjects": [
+      "market stalls",
+      "shoppers",
+      "fruits and vegetables",
+      "signage",
+      "lighting fixtures"
+    ],
+    "mood": "lively and casual",
+    "continuity_anchors": [
+      "large March\u00e9 Jean-Talon sign",
+      "fruit and vegetable displays",
+      "industrial ceiling with lighting and fans",
+      "various shoppers in winter clothing"
+    ],
+    "plausible_actions": [
+      "people shopping for produce",
+      "vendors restocking displays",
+      "shoppers conversing or eating",
+      "someone checking their phone or calling"
+    ],
+    "cinematic_notes": [
+      "use wide shots to capture the spacious market and crowd",
+      "close-ups on colorful produce for texture and detail",
+      "natural light from windows can create soft shadows",
+      "tracking shots following shoppers through aisles"
+    ]
+  },
+  {
+    "filename": "02_Image2.jpeg",
+    "visual_summary": "A narrow urban alleyway bordered by a metal fence on the left and brick buildings on the right, with signage for a Korean chicken restaurant prominently displayed. The alley leads to a larger building in the background with glass windows and an arched central window. The sky is overcast, and a few people are seen walking down the alley.",
+    "location": "Urban alley with restaurants and mixed-use buildings",
+    "subjects": [
+      "metal fence",
+      "brick buildings",
+      "Korean chicken restaurant sign",
+      "pedestrians",
+      "large background building with arched window"
+    ],
+    "mood": "quiet urban overcast",
+    "continuity_anchors": [
+      "Korean restaurant signage",
+      "metal fencing along left side",
+      "distinctive background building with arched window"
+    ],
+    "plausible_actions": [
+      "pedestrians walking through alley",
+      "restaurant customers arriving or leaving",
+      "workers maintaining fence or building exteriors"
+    ],
+    "cinematic_notes": [
+      "low-angle shot emphasizing alley depth and texture of buildings",
+      "use natural overcast light for soft shadows",
+      "focus pull from metal fence to background building for perspective shift"
+    ]
+  },
+  {
+    "filename": "03_Image3.jpeg",
+    "visual_summary": "The image shows a blue and white STM metro train stopped at an underground station platform with visible passengers inside, some seated and some standing. The platform is marked with a bright yellow textured safety strip, and there is a digital display above the train showing timing and metro line information.",
+    "location": "Underground metro station platform",
+    "subjects": [
+      "metro train",
+      "commuters",
+      "platform with safety strip"
+    ],
+    "mood": "urban, routine, transit-focused",
+    "continuity_anchors": [
+      "blue and white STM train exterior",
+      "yellow platform safety strip",
+      "passengers inside train wearing winter clothes",
+      "digital timing display above train"
+    ],
+    "plausible_actions": [
+      "train doors opening and closing",
+      "passengers boarding or alighting",
+      "metro train departing from platform",
+      "commuters checking time on display"
+    ],
+    "cinematic_notes": [
+      "use close-ups of passengers inside train windows for emotional cues",
+      "capture reflections on train windows for layered framing",
+      "emphasize contrast between bright platform strip and darker train exterior for visual interest",
+      "use overhead signs and digital displays as motivators for character movement"
+    ]
+  },
+  {
+    "filename": "04_Image4.jpeg",
+    "visual_summary": "This image shows two illuminated fashion advertisements positioned next to a stairway in an indoor public space. The left ad features a man in a light-colored suit and shorts with the brand name 'TRISTAN', while the right ad displays a woman in a stylish outfit with text in French. The surrounding area is characterized by beige walls, tiled floors, and a staircase with metal handrails.",
+    "location": "Indoor station or transit area near stairs",
+    "subjects": [
+      "fashion advertisement",
+      "stairway",
+      "tiled floor",
+      "wall handrails"
+    ],
+    "mood": "modern, commercial, neutral",
+    "continuity_anchors": [
+      "illuminated ads with 'TRISTAN' and French text",
+      "beige tiled walls",
+      "patterned floor tiles",
+      "metal handrails on stairs"
+    ],
+    "plausible_actions": [
+      "people walking up or down the stairs",
+      "passengers pausing to look at ads",
+      "maintenance staff cleaning the stairway or ads"
+    ],
+    "cinematic_notes": [
+      "use low-angle shots from the base of stairs to emphasize scale",
+      "capture reflections on the tiled floor for depth",
+      "employ the illuminated ads as natural light sources or framing elements"
+    ]
+  }
+]

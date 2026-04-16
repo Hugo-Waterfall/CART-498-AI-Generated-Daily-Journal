@@ -1,0 +1,119 @@
+[
+  {
+    "filename": "01_Image1.jpeg",
+    "visual_summary": "The image shows the interior of March\u00e9 Jean-Talon, a bustling public market with various produce displays and shoppers. People are seen walking, talking, and shopping among stalls filled with fruits and vegetables under a high ceiling with industrial lighting and signage overhead.",
+    "location": "Indoor public market, March\u00e9 Jean-Talon",
+    "subjects": [
+      "shoppers",
+      "produce stalls",
+      "market vendors"
+    ],
+    "mood": "lively and communal",
+    "continuity_anchors": [
+      "March\u00e9 Jean-Talon signage",
+      "fruit and vegetable displays",
+      "industrial ceiling with fans and lighting",
+      "people wearing winter coats"
+    ],
+    "plausible_actions": [
+      "shoppers browsing or selecting produce",
+      "vendors assisting customers",
+      "people eating or drinking as shown",
+      "casual conversations between shoppers"
+    ],
+    "cinematic_notes": [
+      "use wide shots to capture market scale and activity",
+      "natural light from windows for ambient brightness",
+      "focus on candid interactions and vibrant produce colors",
+      "opportunities for tracking shots following shoppers through the aisles"
+    ]
+  },
+  {
+    "filename": "02_Image2.jpeg",
+    "visual_summary": "This image captures a narrow alleyway flanked by buildings with various signs, including a prominent illuminated sign for a Korean chicken restaurant. The scene features a red and black metal fence on the left side and a few people walking in the distance under an overcast sky.",
+    "location": "Urban alley near mixed-use buildings with eateries",
+    "subjects": [
+      "alleyway",
+      "restaurant signs",
+      "metal fence",
+      "pedestrians"
+    ],
+    "mood": "quiet and urban",
+    "continuity_anchors": [
+      "Chicken Plus restaurant sign",
+      "red and black metal fence",
+      "distinctive brick buildings",
+      "emergency access sign"
+    ],
+    "plausible_actions": [
+      "pedestrians walking or stopping to check signs",
+      "restaurant staff entering or exiting",
+      "delivery or maintenance workers passing through"
+    ],
+    "cinematic_notes": [
+      "use the metal fence as a leading line for depth",
+      "capture the overcast light for a moody urban atmosphere",
+      "tight shots of illuminated restaurant signs for night scenes",
+      "low angle shots to emphasize height of buildings"
+    ]
+  },
+  {
+    "filename": "03_Image3.jpeg",
+    "visual_summary": "The image shows a blue subway train with passengers visible through the windows. The platform in front of the train is yellow-tiled, and the ceiling has a white, smooth finish with lighting. Several people inside the train are seated or standing, some wearing backpacks and winter outerwear.",
+    "location": "Indoor subway station platform",
+    "subjects": [
+      "blue subway train",
+      "passengers inside train",
+      "yellow subway platform",
+      "subway station interior"
+    ],
+    "mood": "typical urban commuting atmosphere",
+    "continuity_anchors": [
+      "blue train with white stripe and 'stm' logo",
+      "passenger positioning (seated and standing) inside train",
+      "yellow textured platform",
+      "overhead lighting and ceiling design"
+    ],
+    "plausible_actions": [
+      "train doors opening or closing",
+      "passengers boarding or disembarking",
+      "train starting to move",
+      "announcements over station speaker"
+    ],
+    "cinematic_notes": [
+      "side profile shot of the train emphasizing movement potential",
+      "use reflections on train windows for creative framing",
+      "highlight contrast between cold blue metal and warm yellow platform",
+      "possible tracking shots following passengers entering or exiting train"
+    ]
+  },
+  {
+    "filename": "04_Image4.jpeg",
+    "visual_summary": "The image shows two lit advertisement boards side by side with fashion posters. The left poster presents a man dressed in a light suit with shorts standing on pebbles, and the right poster features a woman in a stylish outfit. To the right, there is a beige tiled staircase and a beige wall with handrails.",
+    "location": "Underground metro or subway station near McGill",
+    "subjects": [
+      "advertisement posters",
+      "fashion models",
+      "staircase",
+      "station signage"
+    ],
+    "mood": "urban, modern, and calm",
+    "continuity_anchors": [
+      "advertisement boards with same posters",
+      "McGill sign with a green dot",
+      "beige tiled walls and floors",
+      "staircase with handrails"
+    ],
+    "plausible_actions": [
+      "commuters walking up or down stairs",
+      "people pausing to look at ads",
+      "station announcements or ambient sounds"
+    ],
+    "cinematic_notes": [
+      "use low-angle shots to incorporate stairs for depth",
+      "close-ups on brightly lit ads for contrast against dim station",
+      "tracking shots following a character ascending or descending stairs",
+      "play with shadow and warm lighting on beige surfaces for mood"
+    ]
+  }
+]

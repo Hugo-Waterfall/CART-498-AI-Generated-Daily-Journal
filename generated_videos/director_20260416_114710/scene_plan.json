@@ -1,0 +1,73 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I moved through the city slowly today,\nfollowing small signals, fruit stacked in warm light, a street narrowed by construction, the familiar hum of the train below.\nNothing dramatic happened,\nbut something about the ordinary felt tender, as if the whole day was quietly keeping me company.",
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "title": "Bridge from 01_Image1 to 02_Image2",
+      "purpose": "Create a continuous transition from 01_Image1.jpeg into 02_Image2.jpeg.",
+      "source_images": [
+        "01_Image1.jpeg",
+        "02_Image2.jpeg"
+      ],
+      "continuity_anchors": [
+        "March\u00e9 Jean-Talon sign",
+        "fruit and vegetable displays",
+        "industrial ceiling with fans",
+        "Chicken Plus restaurant sign with distinct yellow, black, and red colors",
+        "metal construction fence and red barriers",
+        "old brick buildings with windows and fire escapes"
+      ],
+      "emotional_beat": "lively and casual moving toward overcast, slightly industrial, everyday urban",
+      "action_flow": "Begin in the visual world of 01_Image1.jpeg and move naturally into 02_Image2.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 02_Image2.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_02",
+      "title": "Bridge from 02_Image2 to 03_Image3",
+      "purpose": "Create a continuous transition from 02_Image2.jpeg into 03_Image3.jpeg.",
+      "source_images": [
+        "02_Image2.jpeg",
+        "03_Image3.jpeg"
+      ],
+      "continuity_anchors": [
+        "Chicken Plus restaurant sign with distinct yellow, black, and red colors",
+        "metal construction fence and red barriers",
+        "old brick buildings with windows and fire escapes",
+        "blue and white STM train with visible logo",
+        "red jacket worn by one passenger inside",
+        "yellow textured platform edge"
+      ],
+      "emotional_beat": "overcast, slightly industrial, everyday urban moving toward routine urban transit environment",
+      "action_flow": "Begin in the visual world of 02_Image2.jpeg and move naturally into 03_Image3.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 03_Image3.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_03",
+      "title": "Bridge from 03_Image3 to 04_Image4",
+      "purpose": "Create a continuous transition from 03_Image3.jpeg into 04_Image4.jpeg.",
+      "source_images": [
+        "03_Image3.jpeg",
+        "04_Image4.jpeg"
+      ],
+      "continuity_anchors": [
+        "blue and white STM train with visible logo",
+        "red jacket worn by one passenger inside",
+        "yellow textured platform edge",
+        "two illuminated posters with distinct models and text",
+        "McGill sign above posters",
+        "beige stone wall texture"
+      ],
+      "emotional_beat": "routine urban transit environment moving toward calm and commercial",
+      "action_flow": "Begin in the visual world of 03_Image3.jpeg and move naturally into 04_Image4.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 04_Image4.jpeg so the next shot can continue from that state."
+    }
+  ]
+}

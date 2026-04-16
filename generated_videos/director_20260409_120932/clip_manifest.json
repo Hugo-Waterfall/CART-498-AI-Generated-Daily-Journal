@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2 into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_120932\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_120932/generated/shot_01/6910832913616454002/sample_0.mp4",
+    "prompt": "Already drifting past the March\u00e9 Jean-Talon produce stalls, the camera glides forward at walking pace under ceiling fans and warm overhead lights as fruit and vegetable displays slide by in close parallax; a gentle rightward pan follows the market signage and uses a passerby or stall edge as a motivated wipe into the exterior. The motion resolves seamlessly onto a calm cobblestone street under soft overcast light, holding the yellow and blue flags on the middle building and string lights above the shop entrances while still carrying slight forward momentum for the next shot."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1 into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_120932\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_120932/generated/shot_02/6946552188901091629/sample_0.mp4",
+    "prompt": "Continuing the same forward drift on the cobblestone street, the camera tracks slightly left with storefronts passing in parallax, keeping the yellow and blue flags and string lights alive in frame as the overcast sky stays soft and grounded. A motivated pan follows the line of shops into a livelier block where red hanging lanterns, more string lights, leafless trees, and storefront signage with Asian characters emerge naturally, ending mid-glide with the street energy still flowing forward."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_120932\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_120932/generated/shot_03/6650124874830348836/sample_0.mp4",
+    "prompt": "Still in motion beneath the red lanterns, the camera advances through the lively overcast street with leafless trees and Asian-character storefront signs slipping past, then gently racks focus beyond the shops toward an opening ahead. The view carries onto a metal pedestrian bridge with railing, revealing a Ferris wheel with a colorful star center and a small group of people nearby; the pace eases into a slightly somber, wind-cooled atmosphere without fully stopping, leaving the frame ready to continue onward."
+  }
+]

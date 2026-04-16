@@ -1,0 +1,73 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I spent the day walking without much of a plan,\njust letting the city meet me where I was.\nThe cold air, the quiet streets, the color tucked between gray buildings,\nand then the market, warm and full of life,\nmade everything feel a little closer, a little kinder.",
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "title": "Bridge from 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2 to 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1",
+      "purpose": "Create a continuous transition from 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg.",
+      "source_images": [
+        "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg",
+        "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg"
+      ],
+      "continuity_anchors": [
+        "large 'March\u00e9 Jean-Talon' sign",
+        "fruit and vegetable displays",
+        "industrial ceiling with fans and lights",
+        "cobblestone street",
+        "banners hanging from buildings",
+        "signage and awnings"
+      ],
+      "emotional_beat": "lively and bustling moving toward calm, slightly gloomy urban",
+      "action_flow": "Begin in the visual world of 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg and move naturally into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_02",
+      "title": "Bridge from 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1 to 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM",
+      "purpose": "Create a continuous transition from 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg.",
+      "source_images": [
+        "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+        "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg"
+      ],
+      "continuity_anchors": [
+        "cobblestone street",
+        "banners hanging from buildings",
+        "signage and awnings",
+        "red lanterns hanging from trees and poles",
+        "bare trees along the street",
+        "brick building facades"
+      ],
+      "emotional_beat": "calm, slightly gloomy urban moving toward cool, bustling but calm urban atmosphere",
+      "action_flow": "Begin in the visual world of 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg and move naturally into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_03",
+      "title": "Bridge from 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM to 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM",
+      "purpose": "Create a continuous transition from 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg.",
+      "source_images": [
+        "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+        "04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg"
+      ],
+      "continuity_anchors": [
+        "red lanterns hanging from trees and poles",
+        "bare trees along the street",
+        "brick building facades",
+        "large white Ferris wheel with colorful center",
+        "metal pedestrian bridge with mesh railings",
+        "rusted industrial building in the background"
+      ],
+      "emotional_beat": "cool, bustling but calm urban atmosphere moving toward overcast and slightly bleak with low activity",
+      "action_flow": "Begin in the visual world of 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg and move naturally into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg so the next shot can continue from that state."
+    }
+  ]
+}

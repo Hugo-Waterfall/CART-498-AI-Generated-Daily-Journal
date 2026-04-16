@@ -1,0 +1,123 @@
+[
+  {
+    "filename": "01_Image1.jpeg",
+    "visual_summary": "The image shows an indoor market space with multiple fruit and vegetable stalls under a high industrial ceiling. Several shoppers and vendors are visible, with some engaged in conversation and others selecting produce. The market sign 'MARCH\u00c9 JEAN-TALON' is prominently displayed above the central walkway.",
+    "location": "Indoor market, March\u00e9 Jean-Talon",
+    "subjects": [
+      "shoppers",
+      "vendors",
+      "fruit and vegetable stalls",
+      "market sign"
+    ],
+    "mood": "bustling everyday market atmosphere",
+    "continuity_anchors": [
+      "market sign 'MARCH\u00c9 JEAN-TALON'",
+      "fruit and vegetable displays",
+      "overhead industrial ceiling with fans",
+      "shoppers with winter clothing"
+    ],
+    "plausible_actions": [
+      "shoppers picking and buying produce",
+      "vendors arranging or restocking stalls",
+      "people engaging in casual conversation",
+      "customers tasting samples"
+    ],
+    "cinematic_notes": [
+      "use wide shots to capture market bustle",
+      "close-ups on hands selecting fruit",
+      "natural and diffused overhead lighting from tall windows",
+      "tracking shots following moving shoppers"
+    ]
+  },
+  {
+    "filename": "02_Image2.jpeg",
+    "visual_summary": "The image captures a narrow urban alleyway lined with old brick buildings on the left and a mix of brick and stone buildings on the right. A metal fence with red and black netting runs along the left side, indicating construction or roadwork. A prominent restaurant sign for 'CHICKEN PLUS +' with Korean and French text hangs above the sidewalk on the right, while a few pedestrians are seen walking in the distance.",
+    "location": "Urban alley near restaurant area, possibly in a bilingual city (French-Korean).",
+    "subjects": [
+      "restaurant sign",
+      "construction fence",
+      "urban buildings",
+      "pedestrians"
+    ],
+    "mood": "overcast, quiet urban street",
+    "continuity_anchors": [
+      "sign for CHICKEN PLUS + restaurant",
+      "metal construction fencing",
+      "brick and stone building textures",
+      "sidewalk layout with doorways and signage"
+    ],
+    "plausible_actions": [
+      "pedestrians walking or entering the restaurant",
+      "work or maintenance behind the construction fence",
+      "passing vehicles near the fenced area"
+    ],
+    "cinematic_notes": [
+      "use shallow depth of field to focus on the restaurant sign against blurred urban background",
+      "shot from low angle to emphasize fence leading to distant buildings",
+      "natural overcast light for even exposure and moody feel"
+    ]
+  },
+  {
+    "filename": "03_Image3.jpeg",
+    "visual_summary": "The image shows a blue STM metro train stopped at an underground platform. Several passengers are visible through the train windows, seated or standing, some wearing hooded jackets and backpacks. The platform floor is covered with yellow tactile paving for safety.",
+    "location": "Underground STM metro station platform",
+    "subjects": [
+      "blue metro train",
+      "passengers",
+      "yellow tactile paving",
+      "platform"
+    ],
+    "mood": "everyday urban commute",
+    "continuity_anchors": [
+      "blue color of the train with white stripe",
+      "STM logo and 'Mouvement Collectif' text on train",
+      "yellow tactile platform edge",
+      "passengers with backpacks and jackets",
+      "digital signboard with time"
+    ],
+    "plausible_actions": [
+      "passengers boarding or alighting the train",
+      "train doors opening or closing",
+      "train departure",
+      "walking along the platform",
+      "checking the digital display information"
+    ],
+    "cinematic_notes": [
+      "Side profile shot emphasizing train length and passengers inside",
+      "Use of the yellow tactile paving for leading lines in composition",
+      "Play with reflections on train windows for layered visuals",
+      "Lighting contrast between underground platform and train interior"
+    ]
+  },
+  {
+    "filename": "04_Image4.jpeg",
+    "visual_summary": "The image shows a tiled floor area beside a staircase with a handrail, and two illuminated fashion advertisements mounted on a wall. The advertisements feature male and female models wearing stylish summer clothing, with the left ad labeled 'TRISTAN' and the right one labeled 'LE POUVOIR DU STYLE.' Above the advertisements, a sign reads 'McGILL,' indicating a station or venue name.",
+    "location": "Indoor subway or metro station platform near stairs",
+    "subjects": [
+      "fashion advertisement",
+      "staircase",
+      "handrail",
+      "tiled floor",
+      "metal wall with cameras"
+    ],
+    "mood": "quiet, modern urban environment",
+    "continuity_anchors": [
+      "illuminated fashion ads with branded content",
+      "McGILL sign above ads",
+      "patterned tiled flooring",
+      "concrete staircase with metal handrail"
+    ],
+    "plausible_actions": [
+      "commuters walking up or down the stairs",
+      "someone stopping to read or photograph the ads",
+      "cleaning or maintenance activity on stairs or ads",
+      "lighting changes as day turns to night"
+    ],
+    "cinematic_notes": [
+      "low angle shot capturing staircase geometry and ads backlit for contrast",
+      "use of warm artificial light to emphasize urban underground ambiance",
+      "potential for dramatic shadows from staircase railings",
+      "possibility of tracking shot following a person ascending or descending stairs"
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I moved through the city slowly that day,\nfollowing signs, stairs, and passing faces,\nas if each stop was gently leading me somewhere warmer.\nThe train, the grey street, the market noise,\nit all felt ordinary,\nand somehow comforting,\nlike the city was keeping me company.",
+  "shots": [
+    {
+      "shot_id": "shot_01",
+      "title": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM into 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM",
+      "scene_id": "scene_01",
+      "source_image": "02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg",
+      "first_frame_image": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM.jpeg",
+      "last_frame_image": "02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg",
+      "duration_seconds": 4,
+      "camera": "Continuous first-person or observational camera movement that begins in 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM.jpeg and naturally settles into 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM.jpeg into the environment of 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM.jpeg to 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from busy and casual into overcast and urban casual without breaking continuity.",
+      "prompt": "Already drifting past wooden baskets of fruit beneath the industrial market ceiling, the camera glides under the large March\u00e9 Jean-Talon sign as shoppers and hanging lights create layered parallax, then follows a motivated sideways move toward an exit where the bright produce colors give way to grey outdoor light. Continue the same motion onto the street so brick facades, the Chicken Plus sign, and metal construction fencing with red mesh slide into place, ending still gently moving forward in the overcast urban block.",
+      "negative_prompt": "no slideshow transition, no abrupt cut, no cross-fade, no image morphing, no teleporting between locations, no frozen subjects, no freeze-frame ending, no broken anatomy, no duplicated people, no text overlays, no logo graphics, no impossible camera jumps"
+    },
+    {
+      "shot_id": "shot_02",
+      "title": "02_WhatsApp_Image_2026-04-04_at_1.33.28_PM into 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM",
+      "scene_id": "scene_02",
+      "source_image": "03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg",
+      "first_frame_image": "02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg",
+      "last_frame_image": "03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg and naturally settles into 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg into the environment of 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 02_WhatsApp_Image_2026-04-04_at_1.33.28_PM.jpeg to 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from overcast and urban casual into everyday urban transit without breaking continuity.",
+      "prompt": "Begin already in motion on the overcast sidewalk, tracking past brick windows, the Chicken Plus sign, and red-mesh construction fencing as if continuing the same walk, then use the fencing and passing facade as a motivated wipe into the metro platform. The movement resolves alongside a worn blue subway train with a digital display above and the yellow tactile edge stretching forward, while the camera keeps a subtle lateral drift so the platform energy can carry into the next shot.",
+      "negative_prompt": "no slideshow logic, no abrupt scene reset, no hard cut feeling, no cross-fade, no surreal morphs, no train appearing out of nowhere, no broken perspective, no broken anatomy, no text overlays, no freeze-frame, no still-photo zoom effect"
+    },
+    {
+      "shot_id": "shot_03",
+      "title": "03_WhatsApp_Image_2026-04-04_at_1.33.14_PM into 04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5",
+      "scene_id": "scene_03",
+      "source_image": "04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5.jpeg",
+      "first_frame_image": "03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg",
+      "last_frame_image": "04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg and naturally settles into 04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg into the environment of 04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 03_WhatsApp_Image_2026-04-04_at_1.33.14_PM.jpeg to 04_WhatsApp_Image_2026-04-04_at_1.33.11_PM_5.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from everyday urban transit into urban, clean, modern without breaking continuity.",
+      "prompt": "Already gliding beside the blue subway train, the camera tracks forward along the yellow tactile strip as carriage reflections and the digital display pass overhead, then tilts and rises with a commuter-like motion toward the station interior. Let the train-side movement naturally hand off into the clean McGill corridor, where the black McGill sign with green circle, two backlit fashion ads, and concrete tiled walls with stairs come into full view, ending with a slight upward-forward drift rather than a stop.",
+      "negative_prompt": "no powerpoint-style transition, no abrupt cut, no dissolve, no heavy morphing, no impossible station transformation, no jittery handheld chaos, no broken anatomy, no warped train geometry, no text overlays, no freeze-frame, no dead-stop ending"
+    }
+  ]
+}

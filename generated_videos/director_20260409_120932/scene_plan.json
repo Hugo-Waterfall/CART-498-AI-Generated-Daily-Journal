@@ -1,0 +1,73 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I moved through the city slowly, letting each block tell me something new,\nold stone, red lanterns, the smell of fruit, the hum of strangers.\nNothing dramatic happened,\njust the quiet feeling of being here,\nand realizing a simple day can stay with me longer than I expect.",
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "title": "Bridge from 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2 to 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1",
+      "purpose": "Create a continuous transition from 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg.",
+      "source_images": [
+        "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg",
+        "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg"
+      ],
+      "continuity_anchors": [
+        "March\u00e9 Jean-Talon signage",
+        "fruit and vegetable displays",
+        "ceiling fans and overhead lights",
+        "cobblestone street",
+        "distinctive yellow and blue flags on middle building",
+        "string lights above shop entrances"
+      ],
+      "emotional_beat": "lively and casual moving toward calm, slightly overcast urban setting",
+      "action_flow": "Begin in the visual world of 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg and move naturally into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_02",
+      "title": "Bridge from 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1 to 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM",
+      "purpose": "Create a continuous transition from 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg.",
+      "source_images": [
+        "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+        "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg"
+      ],
+      "continuity_anchors": [
+        "cobblestone street",
+        "distinctive yellow and blue flags on middle building",
+        "string lights above shop entrances",
+        "red hanging lanterns and string lights",
+        "leafless trees",
+        "storefront signage with Asian characters"
+      ],
+      "emotional_beat": "calm, slightly overcast urban setting moving toward overcast and lively urban atmosphere",
+      "action_flow": "Begin in the visual world of 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg and move naturally into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_03",
+      "title": "Bridge from 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM to 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM",
+      "purpose": "Create a continuous transition from 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg.",
+      "source_images": [
+        "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+        "04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg"
+      ],
+      "continuity_anchors": [
+        "red hanging lanterns and string lights",
+        "leafless trees",
+        "storefront signage with Asian characters",
+        "metal pedestrian bridge with railing",
+        "Ferris wheel with colorful star center",
+        "small group of people near Ferris wheel"
+      ],
+      "emotional_beat": "overcast and lively urban atmosphere moving toward overcast and slightly somber",
+      "action_flow": "Begin in the visual world of 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg and move naturally into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg so the next shot can continue from that state."
+    }
+  ]
+}
