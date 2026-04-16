@@ -1,6 +1,6 @@
 # CART-498-AI-Generated-Daily-Journal
 
-Small Python project for generating daily-journal style narratives from images, plus a Flask web app that runs the same pipeline and serves results. There is also a director pipeline that plans shots and generates video clips.
+A Python project for generating daily-journal style narratives from images, plus a Flask web app that runs the same pipeline and serves results. There is also a director pipeline that plans shots and generates video clips.
 
 ## What This Repo Contains
 
