@@ -1,0 +1,43 @@
+{
+  "shots": [
+    {
+      "shot_id": "shot_01",
+      "title": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2 into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1",
+      "scene_id": "scene_01",
+      "source_image": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+      "first_frame_image": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg",
+      "last_frame_image": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+      "duration_seconds": 4,
+      "camera": "Continuous first-person or observational camera movement that begins in 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg and naturally settles into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg into the environment of 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg to 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from lively and casual into calm, slightly overcast urban setting without breaking continuity."
+    },
+    {
+      "shot_id": "shot_02",
+      "title": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1 into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM",
+      "scene_id": "scene_02",
+      "source_image": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+      "first_frame_image": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+      "last_frame_image": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg and naturally settles into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg into the environment of 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg to 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from calm, slightly overcast urban setting into overcast and lively urban atmosphere without breaking continuity."
+    },
+    {
+      "shot_id": "shot_03",
+      "title": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM",
+      "scene_id": "scene_03",
+      "source_image": "04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg",
+      "first_frame_image": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+      "last_frame_image": "04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg and naturally settles into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg into the environment of 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg to 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from overcast and lively urban atmosphere into overcast and slightly somber without breaking continuity."
+    }
+  ]
+}

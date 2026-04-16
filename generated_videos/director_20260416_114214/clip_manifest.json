@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "01_Image1 into 02_Image2",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_114214\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_114214/generated/shot_01/4791737128880050873/sample_0.mp4",
+    "prompt": "Already gliding through March\u00e9 Jean-Talon at walking pace, the camera passes fruit and vegetable displays beneath the industrial ceiling, fans, and warm market lights while the large market sign and Korean restaurant signage drift through frame. Continue the same forward-right motion past the metal fencing, letting a cooler overcast exterior emerge with a subtle parallax reveal until the distinctive building with the arched window is fully established, ending mid-glide as if the street walk is continuing."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "02_Image2 into 03_Image3",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_114214\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_114214/generated/shot_02/10514931890514574317/sample_0.mp4",
+    "prompt": "Begin already moving along the quiet overcast street beside the metal fencing, with the Korean restaurant signage and the arched-window building holding continuity as the camera drifts forward and slightly left. Use a motivated pass-by occlusion or whip of a foreground post to carry into the metro platform, where the same motion resolves beside a blue-and-white STM train, yellow safety strip, and winter-clad passengers visible through the windows, ending with the train and platform still alive with subtle motion."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "03_Image3 into 04_Image4",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_114214\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_114214/generated/shot_03/16159799347603250664/sample_0.mp4",
+    "prompt": "Already tracking parallel to the blue-and-white STM train, the camera holds the yellow platform edge low in frame while passengers in winter clothes slide past behind the windows. As the train movement and platform rhythm continue, drift toward the station interior with a smooth rack-focus and parallax reveal of beige tiled walls, patterned floor tiles, and illuminated ads including TRISTAN and French text, settling into the commercial corridor without losing the sense of ongoing transit flow."
+  }
+]

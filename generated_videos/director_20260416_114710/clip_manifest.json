@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "01_Image1 into 02_Image2",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_114710\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_114710/generated/shot_01/16900871142155978239/sample_0.mp4",
+    "prompt": "Already gliding beneath the industrial market ceiling, the camera drifts past the March\u00e9 Jean-Talon sign and warm fruit-and-vegetable displays as ceiling fans turn overhead, then follows a rightward parallax move toward the market edge where exterior daylight takes over. Use a motivated whip past a post or stall edge to carry the same motion into an overcast street with old brick buildings, fire escapes, a metal construction fence, red barriers, and the yellow-black-red Chicken Plus sign coming fully into view, ending still gently advancing down the sidewalk."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "02_Image2 into 03_Image3",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_114710\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_114710/generated/shot_02/17616059947347772959/sample_0.mp4",
+    "prompt": "Begin already moving along the overcast sidewalk beside the metal construction fence and red barriers, with old brick facades and the Chicken Plus sign sliding through frame as the camera continues forward and dips toward a station approach. Let the fence or a passing column motivate a smooth occlusion into the transit platform, revealing a blue-and-white STM train with visible logo, a passenger in a red jacket seen through the windows, and the yellow textured platform edge, ending with the train and platform still carrying lateral motion for the next shot."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "03_Image3 into 04_Image4",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260416_114710\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260416_114710/generated/shot_03/12321100241092803823/sample_0.mp4",
+    "prompt": "Already tracking alongside the blue-and-white STM train, keep the camera in motion with the yellow textured platform edge scrolling by as the windows pass and the red-jacketed passenger remains a brief continuity cue inside. As the train clears frame, rack focus and drift toward the beige stone wall where the McGill sign and two illuminated posters resolve crisply, settling into a calm commercial composition while preserving a slight sideways glide rather than fully stopping."
+  }
+]

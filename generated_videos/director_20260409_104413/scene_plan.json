@@ -1,0 +1,73 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I left the lab when everything was still in its place,\nrows of chairs, cold screens, the hum I barely notice anymore.\nOutside, the city felt narrow at first, then it opened a little,\nand by the time the train arrived, I felt myself settling back into the day.",
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "title": "Bridge from Image1 to Image2",
+      "purpose": "Create a continuous transition from Image1.jpeg into Image2.jpeg.",
+      "source_images": [
+        "Image1.jpeg",
+        "Image2.jpeg"
+      ],
+      "continuity_anchors": [
+        "black desks",
+        "CDA-marked chairs",
+        "desktop computer models",
+        "black metal fence with red panels",
+        "CHICKEN PLUS restaurant sign",
+        "two pedestrians walking"
+      ],
+      "emotional_beat": "calm and orderly moving toward gray, overcast, and slightly constrained",
+      "action_flow": "Begin in the visual world of Image1.jpeg and move naturally into Image2.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in Image2.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_02",
+      "title": "Bridge from Image2 to Image3",
+      "purpose": "Create a continuous transition from Image2.jpeg into Image3.jpeg.",
+      "source_images": [
+        "Image2.jpeg",
+        "Image3.jpeg"
+      ],
+      "continuity_anchors": [
+        "black metal fence with red panels",
+        "CHICKEN PLUS restaurant sign",
+        "two pedestrians walking",
+        "bare trees",
+        "orange no-parking signs",
+        "brick building with 'ALTA' sign"
+      ],
+      "emotional_beat": "gray, overcast, and slightly constrained moving toward overcast, neutral, everyday urban life",
+      "action_flow": "Begin in the visual world of Image2.jpeg and move naturally into Image3.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in Image3.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_03",
+      "title": "Bridge from Image3 to Image4",
+      "purpose": "Create a continuous transition from Image3.jpeg into Image4.jpeg.",
+      "source_images": [
+        "Image3.jpeg",
+        "Image4.jpeg"
+      ],
+      "continuity_anchors": [
+        "bare trees",
+        "orange no-parking signs",
+        "brick building with 'ALTA' sign",
+        "blue train with white stripe",
+        "STM logo and slogan",
+        "passengers seated and standing"
+      ],
+      "emotional_beat": "overcast, neutral, everyday urban life moving toward daily urban commute",
+      "action_flow": "Begin in the visual world of Image3.jpeg and move naturally into Image4.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in Image4.jpeg so the next shot can continue from that state."
+    }
+  ]
+}

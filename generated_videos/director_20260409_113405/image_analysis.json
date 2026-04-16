@@ -1,0 +1,127 @@
+[
+  {
+    "filename": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg",
+    "visual_summary": "The image shows a bustling indoor market with various people walking and shopping around fresh produce stands. The large sign above reads 'March\u00e9 Jean-Talon' with images of vegetables and fruits displayed. The space features high ceilings with industrial lighting and fans, and multiple stalls offering fresh goods including fruits, vegetables, and other products.",
+    "location": "Indoor public market, March\u00e9 Jean-Talon",
+    "subjects": [
+      "shoppers",
+      "market vendors",
+      "fruit and vegetable stands"
+    ],
+    "mood": "lively and bustling",
+    "continuity_anchors": [
+      "large 'March\u00e9 Jean-Talon' sign",
+      "fruit and vegetable displays",
+      "industrial ceiling with fans and lights",
+      "various market stalls and customers in winter clothing"
+    ],
+    "plausible_actions": [
+      "shoppers browsing and selecting produce",
+      "people eating or drinking while walking",
+      "vendors restocking stalls",
+      "casual conversations between shoppers"
+    ],
+    "cinematic_notes": [
+      "use wide shots to capture market atmosphere",
+      "close-ups on fresh produce to highlight colors and textures",
+      "capture natural light from windows for soft illumination",
+      "follow subjects moving through aisles to convey activity"
+    ]
+  },
+  {
+    "filename": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+    "visual_summary": "The image shows a cobblestone street lined with historic commercial buildings featuring stone, brick, and metal facades. Colorful banners and hanging signs hang from the buildings, with a few pedestrians walking along the sidewalk and a single modern car parked on the right side. The sky is overcast, casting a muted light over the scene.",
+    "location": "Historic urban street with mixed stone and brick buildings",
+    "subjects": [
+      "historic buildings",
+      "street banners",
+      "pedestrians",
+      "parked car"
+    ],
+    "mood": "calm, slightly gloomy urban",
+    "continuity_anchors": [
+      "cobblestone street",
+      "banners hanging from buildings",
+      "signage and awnings",
+      "lamp posts",
+      "parked silver car",
+      "pedestrian using phone on sidewalk"
+    ],
+    "plausible_actions": [
+      "pedestrians walking down the street",
+      "someone entering or exiting shops",
+      "car pulling out or driving down the street",
+      "street vendors setting up or closing stalls"
+    ],
+    "cinematic_notes": [
+      "Use natural gray overcast light for soft shadows",
+      "capture leading lines along cobblestone street for depth",
+      "possible tracking shot following pedestrian movement",
+      "wide establishing shot to showcase architectural details"
+    ]
+  },
+  {
+    "filename": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+    "visual_summary": "The image depicts a pedestrian street in an urban area lined with various shops, many featuring Asian signage and red lantern decorations. Several people are walking or standing, dressed in cold-weather clothing, indicating a chilly day with cloudy skies. Leafless trees line the street, supporting the hanging lanterns and string lights.",
+    "location": "Urban pedestrian shopping street with Asian influence",
+    "subjects": [
+      "pedestrians",
+      "leafless trees",
+      "red lanterns",
+      "shop signs",
+      "string lights"
+    ],
+    "mood": "cool, bustling but calm urban atmosphere",
+    "continuity_anchors": [
+      "red lanterns hanging from trees and poles",
+      "bare trees along the street",
+      "brick building facades",
+      "signage featuring Asian characters",
+      "cloudy sky"
+    ],
+    "plausible_actions": [
+      "pedestrians walking along the street",
+      "people window shopping or entering stores",
+      "conversations between street visitors",
+      "lanterns gently swinging in the breeze",
+      "shopkeepers arranging storefront items"
+    ],
+    "cinematic_notes": [
+      "use shallow depth of field to highlight individual pedestrians against the busy background",
+      "low-angle shots can emphasize the hanging lanterns and overhanging branches",
+      "overcast lighting provides soft, diffuse light suitable for even skin tones",
+      "tracking shots down the street can capture the flow and rhythm of pedestrian movement"
+    ]
+  },
+  {
+    "filename": "04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg",
+    "visual_summary": "The image depicts a large Ferris wheel situated near a dried-up or low-water canal with a metal pedestrian bridge crossing over it. Several people are seen standing on the bridge and near the base of the Ferris wheel, under a cloudy, overcast sky. The background includes leafless trees and a long industrial-looking building with a rusted upper portion.",
+    "location": "Urban riverside or waterfront area with a Ferris wheel and pedestrian bridge",
+    "subjects": [
+      "Ferris wheel",
+      "pedestrian bridge",
+      "people",
+      "industrial building",
+      "leafless trees"
+    ],
+    "mood": "overcast and slightly bleak with low activity",
+    "continuity_anchors": [
+      "large white Ferris wheel with colorful center",
+      "metal pedestrian bridge with mesh railings",
+      "rusted industrial building in the background",
+      "dry canal bed"
+    ],
+    "plausible_actions": [
+      "people walking across the bridge",
+      "visitors queuing or waiting near the Ferris wheel",
+      "wind blowing tree branches",
+      "clouds moving across sky"
+    ],
+    "cinematic_notes": [
+      "use wide shots to emphasize scale and emptiness",
+      "capture reflections or damp ground near canal",
+      "play with overcast light for moody, diffused lighting",
+      "close-ups on people interacting near Ferris wheel for contrast with large structures"
+    ]
+  }
+]

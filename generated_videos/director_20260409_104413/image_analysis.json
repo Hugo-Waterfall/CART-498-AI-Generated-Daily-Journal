@@ -1,0 +1,127 @@
+[
+  {
+    "filename": "Image1.jpeg",
+    "visual_summary": "This image depicts a computer lab or classroom equipped with multiple desktop computers arranged on black desks. Each station has a black chair with 'CDA' marked on the backrest, and the room includes a blank blackboard and speakers mounted on the walls. The lighting is bright and even, coming from overhead fluorescent lights.",
+    "location": "Computer lab or classroom",
+    "subjects": [
+      "desktop computers",
+      "office chairs",
+      "blackboard"
+    ],
+    "mood": "calm and orderly",
+    "continuity_anchors": [
+      "black desks",
+      "CDA-marked chairs",
+      "desktop computer models",
+      "blackboard placement",
+      "speaker locations"
+    ],
+    "plausible_actions": [
+      "students working or typing at the computers",
+      "instructor writing on the blackboard",
+      "people entering or exiting through the door",
+      "group discussions around desks"
+    ],
+    "cinematic_notes": [
+      "wide shots showcasing the orderly rows for establishing the setting",
+      "close-ups on the computer screens or keyboards for detail",
+      "lighting to remain consistent with overhead fluorescent fixtures",
+      "possible use of low-angle shots to emphasize the rows of technology"
+    ]
+  },
+  {
+    "filename": "Image2.jpeg",
+    "visual_summary": "The image shows a narrow urban street or alleyway bordered by older brick and stone buildings on one side and a construction site fenced off with metal and plastic barriers on the other. Several restaurant signs, including one for a Korean chicken restaurant, are visible, and two pedestrians walk down the sidewalk toward a large building in the background.",
+    "location": "Narrow urban alley with construction site and small eateries",
+    "subjects": [
+      "construction fence",
+      "Korean chicken restaurant sign",
+      "pedestrians",
+      "older brick buildings",
+      "sidewalk"
+    ],
+    "mood": "gray, overcast, and slightly constrained",
+    "continuity_anchors": [
+      "black metal fence with red panels",
+      "CHICKEN PLUS restaurant sign",
+      "two pedestrians walking",
+      "old brick building architecture",
+      "sidewalk layout"
+    ],
+    "plausible_actions": [
+      "pedestrians walking down alley",
+      "restaurant deliveries or patrons entering/exiting",
+      "construction workers working behind fence",
+      "camera following pedestrians through narrow street"
+    ],
+    "cinematic_notes": [
+      "use shallow depth to focus on signage or pedestrians with blurry background",
+      "wide angle to emphasize constrained space and construction contrast",
+      "gray overcast lighting for moody urban atmosphere",
+      "tracking shot along the sidewalk with changing light reflections"
+    ]
+  },
+  {
+    "filename": "Image3.jpeg",
+    "visual_summary": "The image shows a busy urban street scene with moderate pedestrian activity on the sidewalk and several parked cars along the street. The buildings are a mix of older brick structures and modern storefronts, including 'La Soupierre' and 'Meet Sushi'. The trees are bare, indicating a late fall or winter season under overcast skies.",
+    "location": "Urban city street with mixed commercial buildings",
+    "subjects": [
+      "pedestrians",
+      "parked cars",
+      "bicycles",
+      "storefronts",
+      "street signs"
+    ],
+    "mood": "overcast, neutral, everyday urban life",
+    "continuity_anchors": [
+      "bare trees",
+      "orange no-parking signs",
+      "brick building with 'ALTA' sign",
+      "line of parked cars",
+      "Meet Sushi storefront"
+    ],
+    "plausible_actions": [
+      "pedestrians walking along the sidewalk",
+      "vehicles moving through or parking on the street",
+      "cyclists locking or unlocking bikes",
+      "customers entering or leaving shops"
+    ],
+    "cinematic_notes": [
+      "use overcast natural lighting to create a neutral, realistic atmosphere",
+      "wide-angle tracking shot following pedestrians",
+      "focus on contrast between old brick and modern elements for texture",
+      "possible static shots capturing daily city rhythm"
+    ]
+  },
+  {
+    "filename": "Image4.jpeg",
+    "visual_summary": "A side view of a blue STM metro train at a subway station platform. Inside the train, passengers are seated and standing, some facing the window; one individual is wearing a bright red jacket, standing out among the others. The platform has a yellow safety tactile strip along the edge.",
+    "location": "STM metro subway station platform",
+    "subjects": [
+      "blue STM metro train",
+      "passengers inside train",
+      "person in red jacket",
+      "yellow safety strip on platform"
+    ],
+    "mood": "daily urban commute",
+    "continuity_anchors": [
+      "blue train with white stripe",
+      "STM logo and slogan",
+      "passengers seated and standing",
+      "yellow platform safety strip",
+      "advertisement posters inside train"
+    ],
+    "plausible_actions": [
+      "train doors opening or closing",
+      "passengers entering or exiting train",
+      "people looking out windows",
+      "subway announcer or display updating information"
+    ],
+    "cinematic_notes": [
+      "use reflections on windows for layered shots",
+      "capture the contrast of the bright red jacket for visual focus",
+      "low angle to emphasize train wheels and platform edge",
+      "ambient fluorescent lighting to create a subway atmosphere"
+    ]
+  }
+]

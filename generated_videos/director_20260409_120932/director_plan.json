@@ -1,0 +1,58 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I moved through the city slowly, letting each block tell me something new,\nold stone, red lanterns, the smell of fruit, the hum of strangers.\nNothing dramatic happened,\njust the quiet feeling of being here,\nand realizing a simple day can stay with me longer than I expect.",
+  "shots": [
+    {
+      "shot_id": "shot_01",
+      "title": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2 into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1",
+      "scene_id": "scene_01",
+      "source_image": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+      "first_frame_image": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg",
+      "last_frame_image": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+      "duration_seconds": 4,
+      "camera": "Continuous first-person or observational camera movement that begins in 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg and naturally settles into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg into the environment of 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2.jpeg to 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from lively and casual into calm, slightly overcast urban setting without breaking continuity.",
+      "prompt": "Already drifting past the March\u00e9 Jean-Talon produce stalls, the camera glides forward at walking pace under ceiling fans and warm overhead lights as fruit and vegetable displays slide by in close parallax; a gentle rightward pan follows the market signage and uses a passerby or stall edge as a motivated wipe into the exterior. The motion resolves seamlessly onto a calm cobblestone street under soft overcast light, holding the yellow and blue flags on the middle building and string lights above the shop entrances while still carrying slight forward momentum for the next shot.",
+      "negative_prompt": "slideshow transition, abrupt cut, abrupt morph, cross-fade, dissolve, freeze frame, static reset, broken anatomy, warped produce, floating objects, text overlays, logos, impossible camera jump, unnatural time-lapse motion"
+    },
+    {
+      "shot_id": "shot_02",
+      "title": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1 into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM",
+      "scene_id": "scene_02",
+      "source_image": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+      "first_frame_image": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg",
+      "last_frame_image": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg and naturally settles into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg into the environment of 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1.jpeg to 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from calm, slightly overcast urban setting into overcast and lively urban atmosphere without breaking continuity.",
+      "prompt": "Continuing the same forward drift on the cobblestone street, the camera tracks slightly left with storefronts passing in parallax, keeping the yellow and blue flags and string lights alive in frame as the overcast sky stays soft and grounded. A motivated pan follows the line of shops into a livelier block where red hanging lanterns, more string lights, leafless trees, and storefront signage with Asian characters emerge naturally, ending mid-glide with the street energy still flowing forward.",
+      "negative_prompt": "slideshow logic, hard reset, abrupt morphing architecture, cross-fade, dissolve, freeze-frame hold, jittery drone movement, broken pedestrians, duplicated lanterns, text overlays, captions, impossible street transformation"
+    },
+    {
+      "shot_id": "shot_03",
+      "title": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM",
+      "scene_id": "scene_03",
+      "source_image": "04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg",
+      "first_frame_image": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg",
+      "last_frame_image": "04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg",
+      "duration_seconds": 8,
+      "camera": "Continuous first-person or observational camera movement that begins in 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg and naturally settles into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg, without a restart feeling. Keep enough overlap in framing, movement direction, and visual energy to support a soft handoff to the next adjacent-pair shot.",
+      "action": "Carry visual momentum from the mood and details of 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg into the environment of 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg, using plausible movement and continuity anchors rather than abrupt transformation. The shot should feel already in progress at the start and should not come to a dead stop at the end. Avoid powerpoint-style transitions; favor motivated, cinematic motion.",
+      "transition_goal": "Resolve cleanly from 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM.jpeg to 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM.jpeg while preserving enough camera momentum, framing continuity, and emotional carry-through for the edit to continue without a cut-like reset.",
+      "voiceover_line": "Move from overcast and lively urban atmosphere into overcast and slightly somber without breaking continuity.",
+      "prompt": "Still in motion beneath the red lanterns, the camera advances through the lively overcast street with leafless trees and Asian-character storefront signs slipping past, then gently racks focus beyond the shops toward an opening ahead. The view carries onto a metal pedestrian bridge with railing, revealing a Ferris wheel with a colorful star center and a small group of people nearby; the pace eases into a slightly somber, wind-cooled atmosphere without fully stopping, leaving the frame ready to continue onward.",
+      "negative_prompt": "powerpoint-style transition, abrupt cut, abrupt morph, cross-fade, dissolve, frozen extras, broken anatomy, distorted Ferris wheel, teleporting camera, text overlays, graphic titles, impossible bridge geometry, unnatural motion blur"
+    }
+  ]
+}

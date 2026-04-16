@@ -1,0 +1,73 @@
+{
+  "project_title": "Adjacent Pair Transition Sequence",
+  "story_arc": "Create a cohesive first-person visual diary that feels cinematic, grounded, and alive. Turn the still images into intentional scenes instead of slideshow transitions.",
+  "visual_rules": [
+    "Each shot must start from one source image and resolve into the next image in order.",
+    "Keep continuity between shot endings and the next shot beginnings.",
+    "Avoid abrupt cuts, abrupt morphs, and slideshow logic.",
+    "Prefer grounded motion that can plausibly connect the paired images."
+  ],
+  "narration_text": "I moved through the city slowly today,\nletting small places hold my attention a little longer.\nThe market felt warm, the alley felt quiet, and underground everything became rhythm.\nI wasn't chasing anything,\njust following light, motion, and the comfort of being one more person passing through.",
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "title": "Bridge from 01_Image1 to 02_Image2",
+      "purpose": "Create a continuous transition from 01_Image1.jpeg into 02_Image2.jpeg.",
+      "source_images": [
+        "01_Image1.jpeg",
+        "02_Image2.jpeg"
+      ],
+      "continuity_anchors": [
+        "large March\u00e9 Jean-Talon sign",
+        "fruit and vegetable displays",
+        "industrial ceiling with lighting and fans",
+        "Korean restaurant signage",
+        "metal fencing along left side",
+        "distinctive background building with arched window"
+      ],
+      "emotional_beat": "lively and casual moving toward quiet urban overcast",
+      "action_flow": "Begin in the visual world of 01_Image1.jpeg and move naturally into 02_Image2.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 02_Image2.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_02",
+      "title": "Bridge from 02_Image2 to 03_Image3",
+      "purpose": "Create a continuous transition from 02_Image2.jpeg into 03_Image3.jpeg.",
+      "source_images": [
+        "02_Image2.jpeg",
+        "03_Image3.jpeg"
+      ],
+      "continuity_anchors": [
+        "Korean restaurant signage",
+        "metal fencing along left side",
+        "distinctive background building with arched window",
+        "blue and white STM train exterior",
+        "yellow platform safety strip",
+        "passengers inside train wearing winter clothes"
+      ],
+      "emotional_beat": "quiet urban overcast moving toward urban, routine, transit-focused",
+      "action_flow": "Begin in the visual world of 02_Image2.jpeg and move naturally into 03_Image3.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 03_Image3.jpeg so the next shot can continue from that state."
+    },
+    {
+      "scene_id": "scene_03",
+      "title": "Bridge from 03_Image3 to 04_Image4",
+      "purpose": "Create a continuous transition from 03_Image3.jpeg into 04_Image4.jpeg.",
+      "source_images": [
+        "03_Image3.jpeg",
+        "04_Image4.jpeg"
+      ],
+      "continuity_anchors": [
+        "blue and white STM train exterior",
+        "yellow platform safety strip",
+        "passengers inside train wearing winter clothes",
+        "illuminated ads with 'TRISTAN' and French text",
+        "beige tiled walls",
+        "patterned floor tiles"
+      ],
+      "emotional_beat": "urban, routine, transit-focused moving toward modern, commercial, neutral",
+      "action_flow": "Begin in the visual world of 03_Image3.jpeg and move naturally into 04_Image4.jpeg, keeping the same subject identity and environmental continuity.",
+      "transition_out": "End fully established in 04_Image4.jpeg so the next shot can continue from that state."
+    }
+  ]
+}

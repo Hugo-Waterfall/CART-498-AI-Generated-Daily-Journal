@@ -1,0 +1,23 @@
+[
+  {
+    "shot_id": "shot_01",
+    "title": "01_WhatsApp_Image_2026-04-09_at_10.42.46_AM_2 into 02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_113405\\clips\\shot_01.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_113405/generated/shot_01/5886791073440978869/sample_0.mp4",
+    "prompt": "Already gliding forward through the busy March\u00e9 Jean-Talon interior, pass beneath the large market sign as fruit and vegetable displays slide by in close parallax under the industrial ceiling fans and lights; keep a natural handheld first-person drift and let shoppers and hanging fixtures provide living motion. Use a motivated pan past signage and awnings to carry the eye outward, gradually resolving into the calmer cobblestone street with banners between gray buildings, ending still moving gently forward in the street so the next shot can pick up the same walk."
+  },
+  {
+    "shot_id": "shot_02",
+    "title": "02_WhatsApp_Image_2026-04-09_at_10.42.46_AM_1 into 03_WhatsApp_Image_2026-04-09_at_10.42.45_AM",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_113405\\clips\\shot_02.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_113405/generated/shot_02/10718015681357164818/sample_0.mp4",
+    "prompt": "Continue from the cobblestone street already in motion, the camera walking forward under hanging banners with a cool overcast hush, storefront signage and awnings drifting past at the edges while the street remains centered. Let a subtle pan and parallax reveal bare trees and red lanterns farther ahead, easing the scene into a slightly busier brick-lined block while preserving the same walking pace and ending with the lanterns and facades fully established for the next move."
+  },
+  {
+    "shot_id": "shot_03",
+    "title": "03_WhatsApp_Image_2026-04-09_at_10.42.45_AM into 04_WhatsApp_Image_2026-04-09_at_10.42.44_AM",
+    "local_clip_path": "C:\\Users\\Admin\\Desktop\\CART-498-AI-Generated-Daily-Journal\\generated_videos\\director_20260409_113405\\clips\\shot_03.mp4",
+    "gcs_video_uri": "gs://bucket_project-aijournal/veo-output/director_20260409_113405/generated/shot_03/1075654250829779638/sample_0.mp4",
+    "prompt": "Begin mid-stride beneath the red lanterns, with bare trees and brick facades sliding past as the camera continues forward in a calm observational walk; let the lanterns sway lightly in the cold air and use a gentle upward pan to pull attention deeper down the street. As the movement clears the urban foreground, reveal the large white Ferris wheel with its colorful center beyond a metal pedestrian bridge with mesh railings and a rusted industrial building, settling into the more open overcast space while keeping a faint forward drift instead of stopping cold."
+  }
+]
