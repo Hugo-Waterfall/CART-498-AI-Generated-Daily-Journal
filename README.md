@@ -40,13 +40,9 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Minimum keys for the web app:
-```
-OPENAI_API_KEY=your_openai_key
-```
-
 Keys for the director pipeline and video generation:
 ```
+OPENAI_API_KEY=your_openai_key
 ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
 ELEVENLABS_MODEL_ID=eleven_multilingual_v2
 ELEVENLABS_VOICE_ID=JBFqnCBsd6RMkjVDRZzb
@@ -61,6 +57,27 @@ GOOGLE_GENAI_USE_VERTEXAI=True
 GOOGLE_CLOUD_VEO_OUTPUT_GCS_URI=gs://your-bucket/veo-output
 GOOGLE_APPLICATION_CREDENTIALS_JSON= entire JSON content
 ```
+
+## Google Cloud / Vertex / Veo Setup
+
+1. Create (or select) a Google Cloud project and enable billing.
+2. Enable Vertex AI and Cloud Storage APIs for the project.
+3. Create a Cloud Storage bucket for Veo outputs (example bucket: `my-veo-output`).
+4. Create a service account and grant it:
+   - permission to run Vertex AI jobs/models (commonly `roles/aiplatform.user`)
+   - read/write objects to your bucket (commonly `roles/storage.objectAdmin` on the bucket)
+5. Create a JSON key for the service account and copy the full JSON contents.
+6. Set these environment variables (locally in `.env`, or in Render “Environment”):
+
+```
+GOOGLE_CLOUD_PROJECT=<your project id>
+GOOGLE_CLOUD_LOCATION=global
+GOOGLE_GENAI_USE_VERTEXAI=True
+GOOGLE_CLOUD_VEO_OUTPUT_GCS_URI=gs://<your-bucket>/<optional-prefix>
+GOOGLE_APPLICATION_CREDENTIALS_JSON=<paste the entire service account JSON>
+```
+
+Security note: treat `GOOGLE_APPLICATION_CREDENTIALS_JSON` like a password. Do not commit it.
 
 4. Load environment variables.
 
@@ -127,4 +144,3 @@ gunicorn app:app --bind 0.0.0.0:$PORT --timeout 600 --workers 2 --threads 2
 - It’s possible to exceed free-tier limits. On Render, you may encounter errors like:There are possible to run exceeds the plan limits, Render may show: `Instance failed ... Ran out of memory (used over 512MB) while running your code.` In that case, it require an upgrade the Render instance size/plan.
 - The ElevenLabs free tier can flag requests from shared cloud infrastructure (including Render) as “unusual activity.”
 - If that happens, either use `--skip-audio`, switch to a paid plan.
-
